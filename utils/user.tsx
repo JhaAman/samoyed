@@ -21,15 +21,18 @@ const UserProvider = (props: { children: any }) => {
 
   useEffect(() => {
     const getUserProfile = async () => {
+      // Get user data from user table
       const sessionUser = supabase.auth.user();
 
       if (sessionUser) {
+        // Get data from profile table
         const { data: profile } = await supabase
           .from("profile")
           .select("*")
           .eq("id", sessionUser.id)
           .single();
 
+        // Merge supabase user table with profile table
         setUser({
           ...sessionUser,
           ...profile,
