@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Blog post on how to use below themes: https://darrenwhite.dev/blog/nextjs-tailwindcss-theming */
+
+/* Dark theme by default */
 :root {
-  --background: theme("colors.white");
-  --background-secondary: theme("colors.gray.50");
-
-  --primary-dark: theme("colors.gray.900");
-  --primary-medium: theme("colors.gray.700");
-  --primary-light: theme("colors.gray.500");
-}
-
-[data-theme="dark"] {
   --background: theme("colors.black");
   --background-secondary: theme("colors.gray.800");
 
@@ -24,7 +18,17 @@
   --primary-light: theme("colors.gray.100");
 }
 
-[data-theme="emerald"] {
+/* Classic light theme */
+[data-theme="light"] {
+  --background: theme("colors.white");
+  --background-secondary: theme("colors.gray.50");
+
+  --primary-dark: theme("colors.gray.900");
+  --primary-medium: theme("colors.gray.700");
+  --primary-light: theme("colors.gray.500");
+}
+
+/* [data-theme="emerald"] {
   --background: theme("colors.white");
 
   --accent-dark: theme("colors.emerald.900");
@@ -43,4 +47,4 @@
   --primary-dark: theme("colors.gray.300");
   --primary-medium: theme("colors.gray.200");
   --primary-light: theme("colors.gray.100");
-}
+} */
