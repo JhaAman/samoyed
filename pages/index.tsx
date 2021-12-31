@@ -61,8 +61,8 @@ Home.getLayout = (page: ReactElement) => {
           description="Welcome to Rosie - code React apps 10x faster"
         />
       }
-      headerActive={true}
-      footerActive={true}
+      headerActive={false}
+      footerActive={false}
     >
       {page}
     </HomepageLayout>
