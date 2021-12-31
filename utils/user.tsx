@@ -82,8 +82,6 @@ const UserProvider = (props: { children: any }) => {
         .eq("id", user.id)
         .single();
 
-      console.log("setting profile as ", profile);
-
       setProfile(profile);
       setUserLoaded(true);
     }

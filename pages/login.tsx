@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, ReactElement, useEffect, useState } from "react";
+import Meta from "../components/homepage/Meta";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
+import HomepageLayout from "../layout/HomepageLayout";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 
@@ -101,7 +103,7 @@ const Login = ({ beta_list }: Props) => {
           </form>
         </div>
 
-        <div className="flex items-center my-6">
+        {/* <div className="flex items-center my-6">
           <div
             className="flex-grow mr-3 border-t border-gray-600"
             aria-hidden="true"
@@ -111,7 +113,7 @@ const Login = ({ beta_list }: Props) => {
             className="flex-grow ml-3 border-t border-gray-600"
             aria-hidden="true"
           ></div>
-        </div>
+        </div> */}
 
         {/* <Button
           variant="slim"
@@ -136,6 +138,25 @@ export const getStaticProps = async () => {
       beta_list,
     },
   };
+};
+
+// Attach the landing layout (and other nested layouts) to the page
+Login.getLayout = (page: ReactElement) => {
+  return (
+    // Attach the Landing layout with a meta component, decide on header/footer
+    <HomepageLayout
+      meta={
+        <Meta
+          title="Sign into Rosie"
+          description="Ready to become a 10x React developer?"
+        />
+      }
+      headerActive={false}
+      footerActive={false}
+    >
+      {page}
+    </HomepageLayout>
+  );
 };
 
 export default Login;
