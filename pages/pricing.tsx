@@ -17,22 +17,21 @@ export const getStaticProps = async () => {
   );
 
   const { data: prices } = await stripe.prices.list();
+  // for each price in prices, retrieve the product associated with the price
   const plans = await Promise.all(
-    prices.map(async (price) => {
-      const product = await stripe.products.retrieve(price.product as string);
+    prices.map(async (price: any) => {
+      const product = await stripe.products.retrieve(price.product);
       return {
-        id: price.id,
-        name: product.name,
-        price: price.unit_amount,
-        interval: price.recurring?.interval,
-        currency: price.currency,
+        ...price,
+        product,
       };
     })
   );
+  const sortedPlans = plans.sort((a, b) => a.unit_amount - b.unit_amount);
 
   return {
     props: {
-      plans,
+      sortedPlans,
     },
   };
 };
