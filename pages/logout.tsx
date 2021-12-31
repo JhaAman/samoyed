@@ -4,7 +4,9 @@ import { useUser } from "../utils/user";
 const Login = () => {
   const { logout } = useUser();
 
-  useEffect(logout, []);
+  useEffect(() => {
+    logout();
+  });
 
   return <p>Logging in</p>;
 };
