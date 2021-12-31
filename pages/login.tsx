@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { FormEvent, useEffect, useState } from "react";
+import Button from "../components/ui/Button";
+import Input from "../components/ui/Input";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 
@@ -39,13 +41,89 @@ const Login = ({ beta_list }: Props) => {
       (beta_list_user) => beta_list_user.email === email
     );
     console.log("On beta list?", isInBetaList);
+
+    isInBetaList
+      ? login()
+      : setMessage({
+          type: "error",
+          content: "That email isn't on the beta list.",
+        });
   };
 
   return (
-    <>
-      <h1>Login</h1>
-      {/* A form that takes an email as input */}
-    </>
+    <div className="flex justify-center h-screen">
+      <div className="flex flex-col justify-between max-w-lg p-3 m-auto w-80 ">
+        {/* <div className="flex items-center justify-center pb-12">
+          <Logo width="32px" height="32px" />
+        </div> */}
+
+        <h1 className="items-center justify-center m-8 text-3xl font-bold text-center text-red-400">
+          Login to Rosie
+        </h1>
+
+        {/* Display messages and errors */}
+        <div className="flex flex-col space-y-4">
+          {message.content && (
+            <div
+              className={`${
+                message.type === "error" ? "text-pink-500" : "text-green-500"
+              } border ${
+                message.type === "error"
+                  ? "border-pink-500"
+                  : "border-green-500"
+              } p-3`}
+            >
+              {message.content}
+            </div>
+          )}
+
+          <form
+            onSubmit={(e) => {
+              handleSubmitEmail(e);
+            }}
+            className="flex flex-col space-y-4"
+          >
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={setEmail}
+              required
+            />
+            <Button
+              variant="slim"
+              type="submit"
+              loading={loading}
+              disabled={!email.length}
+            >
+              Login
+            </Button>
+          </form>
+        </div>
+
+        <div className="flex items-center my-6">
+          <div
+            className="flex-grow mr-3 border-t border-gray-600"
+            aria-hidden="true"
+          ></div>
+          <div className="text-gray-400">Or</div>
+          <div
+            className="flex-grow ml-3 border-t border-gray-600"
+            aria-hidden="true"
+          ></div>
+        </div>
+
+        {/* <Button
+          variant="slim"
+          type="submit"
+          disabled={loading}
+          onClick={() => handleOAuthSignIn("github")}
+        >
+          <GitHub />
+          <span className="ml-2">Continue with GitHub</span>
+        </Button> */}
+      </div>
+    </div>
   );
 };
 
