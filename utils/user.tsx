@@ -2,10 +2,19 @@ import { createContext, useState, useEffect, useContext } from "react";
 import supabase from "./supabase";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { User } from "@supabase/supabase-js";
 
-const Context = createContext();
+type Provider = {
+  user: User | null;
+  login: () => Promise<void>;
+  logout: () => Promise<void>;
+  isLoading: boolean;
+};
+const UserContext = createContext<Provider>(undefined as any);
 
-const Provider = ({ children }) => {
+const Provider = (props: { children: any }) => {
+  const { children } = props;
+
   const [user, setUser] = useState(supabase.auth.user());
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -78,9 +87,11 @@ const Provider = ({ children }) => {
     isLoading,
   };
 
-  return <Context.Provider value={exposed}>{children}</Context.Provider>;
+  return (
+    <UserContext.Provider value={exposed}>{children}</UserContext.Provider>
+  );
 };
 
-export const useUser = () => useContext(Context);
+export const useUser = () => useContext(UserContext);
 
 export default Provider;
