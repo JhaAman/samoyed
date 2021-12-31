@@ -3,12 +3,20 @@ import Head from "next/head";
 import Image from "next/image";
 import supabase from "../utils/supabase";
 import styles from "../styles/Home.module.css";
+import { styled } from "@stitches/react";
 import { useUser } from "../utils/user";
 import { ReactElement, useEffect, useState } from "react";
 import ThemeSwitch from "../components/ThemeSwitch";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
-import * as Separator from "@radix-ui/react-separator";
+import { violet } from "@radix-ui/colors";
+import * as SeparatorPrimitive from "@radix-ui/react-separator";
+
+const StyledSeparator = styled(SeparatorPrimitive.Root, {
+  backgroundColor: violet.violet6,
+  "&[data-orientation=horizontal]": { height: 1, width: "100%" },
+  "&[data-orientation=vertical]": { height: "100%", width: 1 },
+});
 
 interface Props {
   beta_list: {
@@ -31,7 +39,7 @@ const Home = ({ beta_list }: Props) => {
             </h1>
             <p>A React developer best friend.</p>
           </div>
-          <Separator.Root style={{ margin: "15px 0", color: "white" }} />
+          <StyledSeparator css={{ margin: "15px 0" }} />
           <div>
             <p>next</p>
           </div>
@@ -39,6 +47,9 @@ const Home = ({ beta_list }: Props) => {
             onClick={() => {}}
             className="flex items-center px-3 py-2 mt-8 text-sm font-medium text-white transition transform bg-gray-300 rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
           >
+            <span className="mr-3">
+              Press <span className="font-bold">enter</span> to begin
+            </span>
             <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 opacity-70">
               <path
                 d="M14.9497 14.9498C12.2161 17.6835 7.78392 17.6835 5.05025 14.9498C2.31658 12.2162 2.31658 7.784 5.05025 5.05033C7.78392 2.31666 12.2161 2.31666 14.9497 5.05033C15.5333 5.63385 15.9922 6.29475 16.3266 7M16.9497 2L17 7H16.3266M12 7L16.3266 7"
@@ -46,10 +57,6 @@ const Home = ({ beta_list }: Props) => {
                 strokeWidth="1.5"
               />
             </svg>
-
-            <span className="ml-3">
-              Press <span className="font-bold">enter</span> to begin
-            </span>
           </button>
         </div>
       </div>
