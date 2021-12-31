@@ -4,8 +4,10 @@ import Image from "next/image";
 import supabase from "../utils/supabase";
 import styles from "../styles/Home.module.css";
 import { useUser } from "../utils/user";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import ThemeSwitch from "../components/ThemeSwitch";
+import HomepageLayout from "../layout/HomepageLayout";
+import Meta from "../components/homepage/Meta";
 
 interface Props {
   beta_list: {
@@ -45,6 +47,25 @@ const Home = ({ beta_list }: Props) => {
       </Head>
       <h1 className="text-3xl font-bold underline">{message}</h1>
     </>
+  );
+};
+
+// Attach the landing layout (and other nested layouts) to the page
+Home.getLayout = (page: ReactElement) => {
+  return (
+    // Attach the Landing layout with a meta component, decide on header/footer
+    <HomepageLayout
+      meta={
+        <Meta
+          title="Rosie"
+          description="Welcome to Rosie - code React apps 10x faster"
+        />
+      }
+      headerActive={true}
+      footerActive={true}
+    >
+      {page}
+    </HomepageLayout>
   );
 };
 
