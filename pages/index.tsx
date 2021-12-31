@@ -30,10 +30,11 @@ const Home = ({ beta_list }: Props) => {
     console.log("On beta list?", isInBetaList);
 
     // check if user is subscribed
-    const isSubscribed = profile?.subscribed;
+    // const isSubscribed = profile?.is_subscribed;
+    console.log("profile", profile);
 
     isInBetaList ? setMessage("You are in the beta list!") : setMessage("🤬");
-  }, [user]);
+  }, [user, profile]);
 
   return (
     <>

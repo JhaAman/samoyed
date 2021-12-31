@@ -17,5 +17,5 @@ export interface Profile {
   avatar_url?: string;
   billing_address?: any; // type unknown;
   payment_method?: any; // type unknown;
-  subscribed: boolean;
+  is_subscribed: boolean;
 }

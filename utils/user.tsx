@@ -74,18 +74,19 @@ const UserProvider = (props: { children: any }) => {
   // };
 
   const getUserProfile = async () => {
-    // Get user data from user table
-
+    // Get user profile data
     if (user) {
       const { data: profile } = await supabase
         .from("profile")
         .select("*")
         .eq("id", user.id)
         .single();
-    }
 
-    setProfile(profile);
-    setUserLoaded(true);
+      console.log("setting profile as ", profile);
+
+      setProfile(profile);
+      setUserLoaded(true);
+    }
   };
 
   useEffect(() => {
