@@ -8,7 +8,7 @@ const Login = () => {
     logout();
   });
 
-  return <p>Logging in</p>;
+  return <p>Logging out</p>;
 };
 
 export default Login;
