@@ -8,6 +8,7 @@ import { ReactElement, useEffect, useState } from "react";
 import ThemeSwitch from "../components/ThemeSwitch";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
+import * as Separator from "@radix-ui/react-separator";
 
 interface Props {
   beta_list: {
@@ -19,33 +20,39 @@ interface Props {
 
 const Home = ({ beta_list }: Props) => {
   const { user, profile } = useUser();
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    console.log(user);
-    console.log(user?.email);
-    console.log("beta_list", beta_list);
-
-    // print true if user is in beta list
-    const isInBetaList = beta_list.some(
-      (beta_list_user) => beta_list_user.email === user?.email
-    );
-    console.log("On beta list?", isInBetaList);
-
-    // check if user is subscribed
-    // const isSubscribed = profile?.is_subscribed;
-    console.log("profile", profile);
-
-    isInBetaList ? setMessage("You are in the beta list!") : setMessage("🤬");
-  }, [user, profile]);
 
   return (
     <>
-      <Head>
-        <title>Samoyed</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <h1 className="text-3xl font-bold underline">{message}</h1>
+      <div className="flex min-h-screen text-gray-100 bg-th-background">
+        <div className="flex flex-col items-center justify-center flex-1 ">
+          <div className="justify-center text-center">
+            <h1 className="text-2xl">
+              Welcome to <span className="font-bold text-red-500">Rosie</span>.
+            </h1>
+            <p>A React developer best friend.</p>
+          </div>
+          <Separator.Root style={{ margin: "15px 0", color: "white" }} />
+          <div>
+            <p>next</p>
+          </div>
+          <button
+            onClick={() => {}}
+            className="flex items-center px-3 py-2 mt-8 text-sm font-medium text-white transition transform bg-gray-300 rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
+          >
+            <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 opacity-70">
+              <path
+                d="M14.9497 14.9498C12.2161 17.6835 7.78392 17.6835 5.05025 14.9498C2.31658 12.2162 2.31658 7.784 5.05025 5.05033C7.78392 2.31666 12.2161 2.31666 14.9497 5.05033C15.5333 5.63385 15.9922 6.29475 16.3266 7M16.9497 2L17 7H16.3266M12 7L16.3266 7"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+            </svg>
+
+            <span className="ml-3">
+              Press <span className="font-bold">enter</span> to begin
+            </span>
+          </button>
+        </div>
+      </div>
     </>
   );
 };
