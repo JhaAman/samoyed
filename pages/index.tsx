@@ -3,12 +3,16 @@ import Head from "next/head";
 import Image from "next/image";
 import supabase from "../utils/supabase";
 import styles from "../styles/Home.module.css";
+import { useUser } from "../utils/user";
 
 const Home: NextPage = () => {
+  const { user } = useUser();
+  console.log({ user });
+
   return (
-    <div className={styles.container}>
-      <h1 className="text-3xl font-bold underline"> Hello world! </h1>
-    </div>
+    <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    </>
   );
 };
 

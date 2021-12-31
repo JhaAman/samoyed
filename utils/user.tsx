@@ -4,15 +4,15 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { User } from "@supabase/supabase-js";
 
-type Provider = {
+type UserProvider = {
   user: User | null;
   login: () => Promise<void>;
   logout: () => Promise<void>;
   isLoading: boolean;
 };
-const UserContext = createContext<Provider>(undefined as any);
+const UserContext = createContext<UserProvider>(undefined as any);
 
-const Provider = (props: { children: any }) => {
+const UserProvider = (props: { children: any }) => {
   const { children } = props;
 
   const [user, setUser] = useState(supabase.auth.user());
@@ -94,4 +94,4 @@ const Provider = (props: { children: any }) => {
 
 export const useUser = () => useContext(UserContext);
 
-export default Provider;
+export default UserProvider;
