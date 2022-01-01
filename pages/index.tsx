@@ -7,6 +7,7 @@ import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
 import * as Separator from "@radix-ui/react-separator";
 import Image from "next/image";
+import Button from "../components/ui/Button";
 
 interface Props {
   beta_list: {
@@ -22,17 +23,23 @@ const Home = ({ beta_list }: Props) => {
   return (
     <>
       {/* Header (command key) */}
-      <div className="">
-        <div className="flex items-center justify-center w-16 h-16 p-4 border-2 border-gray-700 rounded-xl">
+      {/* A div that's absolutely at the top of the screen */}
+
+      {/* <BrowserView> */}
+      <div className="absolute top-0 flex w-full">
+        {/* A button that's all the way on the right */}
+
+        <button className="flex items-center justify-center w-16 h-16 p-4 m-10 ml-auto border-2 border-white hover:opacity-60 opacity-40 rounded-xl">
           <Image
             src="/static/command-symbol-dark.svg"
             width={24}
             height={24}
             alt="command-symbol"
-            className=" opacity-40"
+            className=""
           ></Image>
-        </div>
+        </button>
       </div>
+      {/* </BrowserView> */}
 
       <div className="flex min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
         <div className="flex flex-col items-center justify-center flex-1 ">
