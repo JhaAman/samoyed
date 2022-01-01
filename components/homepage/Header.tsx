@@ -8,6 +8,7 @@ import { useKBar } from "kbar";
 import Link from "next/link";
 import React, { ReactElement } from "react";
 import { BrowserView } from "react-device-detect";
+import { CommandIcon } from "../icons";
 
 interface Props {}
 
@@ -23,7 +24,7 @@ export default function Header({}: Props): ReactElement {
             onClick={query.toggle}
             className="flex items-center justify-center w-12 h-12 p-2 m-10 mr-auto border-2 border-white hover:opacity-40 opacity-20 rounded-xl"
           >
-            <CommandSymbol />
+            <CommandIcon />
           </button>
 
           {/* Command Button */}
@@ -31,7 +32,7 @@ export default function Header({}: Props): ReactElement {
             onClick={query.toggle}
             className="flex items-center justify-center w-12 h-12 p-2 m-10 ml-auto border-2 border-white hover:opacity-40 opacity-20 rounded-xl"
           >
-            <CommandSymbol />
+            <CommandIcon />
           </button>
         </div>
       </BrowserView>

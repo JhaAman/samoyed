@@ -24,7 +24,16 @@ import Footer from "../components/homepage/Footer";
 import Header from "../components/homepage/Header";
 import { useRouter } from "next/router";
 import CommandBar from "../components/homepage/CommandBar";
-import { HomeIcon } from "../components/icons";
+import {
+  ClockIcon,
+  EmailIcon,
+  HomeIcon,
+  LinkedInIcon,
+  ListIcon,
+  SignInIcon,
+  ThemeIcon,
+  TwitterIcon,
+} from "../components/icons";
 
 // TODO: add fathom client, etc.
 
@@ -104,7 +113,7 @@ export default function HomepageLayout({
       keywords: "preorder buy get signup",
       section: "Action",
       perform: () => router.push("/preorder"),
-      icon: <HomeIcon />,
+      icon: <ClockIcon />,
       subtitle: "Limited: preorder lifetime access now",
     },
     {
@@ -114,7 +123,7 @@ export default function HomepageLayout({
       keywords: "waitlist get signup",
       section: "Action",
       perform: () => router.push("/welcome"),
-      icon: <HomeIcon />,
+      icon: <ListIcon />,
       // subtitle: "",
     },
     {
@@ -124,7 +133,7 @@ export default function HomepageLayout({
       keywords: "signup login signin",
       section: "Action",
       perform: () => router.push("/login"),
-      icon: <HomeIcon />,
+      icon: <SignInIcon />,
       // subtitle: "",
     },
     /* Navigation */
@@ -166,7 +175,7 @@ export default function HomepageLayout({
       keywords: "theme dark light",
       section: "General",
       // perform: () => router.push("/jobs"),
-      icon: <HomeIcon />,
+      icon: <ThemeIcon />,
       subtitle: "Don't like dark mode?",
     },
     {
@@ -176,7 +185,7 @@ export default function HomepageLayout({
       keywords: "contact email hello",
       section: "General",
       // perform: () => router.push("/jobs"),
-      icon: <HomeIcon />,
+      icon: <EmailIcon />,
       subtitle: "Talk to us!",
     },
     // Social
@@ -187,7 +196,7 @@ export default function HomepageLayout({
       keywords: "twitter tweet social dm",
       section: "Social",
       perform: () => window.open("https://twitter.com/Rosie_HQ", "_blank"),
-      icon: <HomeIcon />,
+      icon: <TwitterIcon />,
       // subtitle: "",
     },
     {
@@ -198,7 +207,7 @@ export default function HomepageLayout({
       section: "Social",
       perform: () =>
         window.open("https://www.linkedin.com/company/rosieos/", "_blank"),
-      icon: <HomeIcon />,
+      icon: <LinkedInIcon />,
       // subtitle: "Don't like dark mode?",
     },
   ];
