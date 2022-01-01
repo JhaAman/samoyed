@@ -22,13 +22,16 @@ const Home = ({ beta_list }: Props) => {
   return (
     <>
       {/* Header (command key) */}
-      <div>
-        <Image
-          src="/static/command-symbol.svg"
-          width={24}
-          height={24}
-          alt="command-symbol"
-        ></Image>
+      <div className="">
+        <div className="flex items-center justify-center w-16 h-16 p-4 border-2 border-gray-700 rounded-xl">
+          <Image
+            src="/static/command-symbol-dark.svg"
+            width={24}
+            height={24}
+            alt="command-symbol"
+            className=" opacity-40"
+          ></Image>
+        </div>
       </div>
 
       <div className="flex min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
