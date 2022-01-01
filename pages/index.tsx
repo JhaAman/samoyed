@@ -27,9 +27,19 @@ const Home = ({ beta_list }: Props) => {
 
       {/* <BrowserView> */}
       <div className="absolute top-0 flex w-full">
-        {/* A button that's all the way on the right */}
+        {/* Rosie Logo */}
+        <button className="flex items-center justify-center w-12 h-12 p-2 m-10 mr-auto border-2 border-white hover:opacity-40 opacity-20 rounded-xl">
+          <Image
+            src="/static/command-symbol-dark.svg"
+            width={24}
+            height={24}
+            alt="command-symbol"
+            className=""
+          ></Image>
+        </button>
 
-        <button className="flex items-center justify-center w-16 h-16 p-4 m-10 ml-auto border-2 border-white hover:opacity-60 opacity-40 rounded-xl">
+        {/* Command Button */}
+        <button className="flex items-center justify-center w-12 h-12 p-2 m-10 ml-auto border-2 border-white hover:opacity-40 opacity-20 rounded-xl">
           <Image
             src="/static/command-symbol-dark.svg"
             width={24}
