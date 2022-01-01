@@ -12,16 +12,18 @@
   --base: theme("colors.dark.base");
   --overflow: theme("colors.dark.overflow");
 
+  --on-surface: theme("colors.white");
+
   --primary-dark: theme("colors.rosie.700");
   --primary: theme("colors.rosie.500");
   --primary-light: theme("colors.rosie.300");
-  --on-primary: theme("colors.rosie.100");
+  --on-primary: theme("colors.white");
   --primary-bg-tint: theme("colors.rosie.900");
 
   --accent-dark: theme("colors.fuchsia.900");
   --accent: theme("colors.fuchsia.700");
   --accent-light: theme("colors.fuchsia.500");
-  --on-accent: theme("colors.fuchsia.100");
+  --on-accent: theme("colors.white");
   --accent-bg-tint: theme("colors.fuchsia.900");
 
   --hero-left: theme("colors.dark.hero-left");
