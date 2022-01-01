@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
 import { FormEvent, ReactElement, useEffect, useState } from "react";
-import Meta from "../components/homepage/Meta";
-import Button from "../components/ui/Button";
-import Input from "../components/ui/Input";
-import HomepageLayout from "../layout/HomepageLayout";
+import { useRouter } from "next/router";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
+import HomepageLayout from "../layout/HomepageLayout";
+import Meta from "../components/homepage/Meta";
+import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
 
 interface Props {
   beta_list: {
@@ -26,8 +26,10 @@ const Login = ({ beta_list }: Props) => {
   });
 
   useEffect(() => {
+    console.log("login checking user", user);
+
     if (user) {
-      router.push("/app");
+      router.push("/dashboard");
     }
 
     console.log("beta_list", beta_list);
@@ -151,7 +153,7 @@ Login.getLayout = (page: ReactElement) => {
           description="Ready to become a 10x React developer?"
         />
       }
-      headerActive={false}
+      headerActive={true}
       footerActive={false}
     >
       {page}

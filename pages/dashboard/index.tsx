@@ -6,7 +6,7 @@ const Dashboard = () => {
 
   useEffect(() => {});
 
-  return <p>Logging out</p>;
+  return <p>Welcome to dashboard</p>;
 };
 
 export default Dashboard;

@@ -1,14 +1,10 @@
+import { ReactElement, useEffect } from "react";
+import { useRouter } from "next/router";
+import * as Separator from "@radix-ui/react-separator";
 import supabase from "../utils/supabase";
-import styles from "../styles/Home.module.css";
 import { useUser } from "../utils/user";
-import { ReactElement, useEffect, useState } from "react";
-import ThemeSwitch from "../components/ThemeSwitch";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
-import * as Separator from "@radix-ui/react-separator";
-import Image from "next/image";
-import Button from "../components/ui/Button";
-import { BrowserView } from "react-device-detect";
 
 interface Props {
   beta_list: {
@@ -19,7 +15,16 @@ interface Props {
 }
 
 const Home = ({ beta_list }: Props) => {
-  const { user, profile } = useUser();
+  const router = useRouter();
+  const { user } = useUser();
+
+  useEffect(() => {
+    console.log("index checking user", user);
+    if (user) {
+      console.log("user");
+      router.push("/dashboard");
+    }
+  }, []);
 
   return (
     <>
@@ -43,14 +48,6 @@ const Home = ({ beta_list }: Props) => {
               Press <span className="font-bold">enter</span> to begin{" "}
               <span className="w-5 h-5 opacity-70">&#8594;</span>
             </span>
-
-            {/* <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 opacity-70">
-              <path
-                d="M14.9497 14.9498C12.2161 17.6835 7.78392 17.6835 5.05025 14.9498C2.31658 12.2162 2.31658 7.784 5.05025 5.05033C7.78392 2.31666 12.2161 2.31666 14.9497 5.05033C15.5333 5.63385 15.9922 6.29475 16.3266 7M16.9497 2L17 7H16.3266M12 7L16.3266 7"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-            </svg> */}
           </button>
         </div>
       </div>
@@ -66,7 +63,7 @@ Home.getLayout = (page: ReactElement) => {
       meta={
         <Meta
           title="Rosie"
-          description="Welcome to Rosie - code React apps 10x faster"
+          description="Get answers for any React questions instantly"
         />
       }
       headerActive={true}
