@@ -6,6 +6,7 @@ import ThemeSwitch from "../components/ThemeSwitch";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
 import * as Separator from "@radix-ui/react-separator";
+import Image from "next/image";
 
 interface Props {
   beta_list: {
@@ -20,13 +21,23 @@ const Home = ({ beta_list }: Props) => {
 
   return (
     <>
+      {/* Header (command key) */}
+      <div>
+        <Image
+          src="/static/command-symbol.svg"
+          width={24}
+          height={24}
+          alt="command-symbol"
+        ></Image>
+      </div>
+
       <div className="flex min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
         <div className="flex flex-col items-center justify-center flex-1 ">
           <div className="justify-center text-center">
             <h1 className="my-3 text-4xl">
               Welcome to <span className="font-bold text-primary">Rosie</span>.
             </h1>
-            <p>A React developer{"'"}s best friend.</p>
+            <p>A React developer{"'"}s best friend</p>
           </div>
           <Separator.Root className="w-40 my-16 bg-gray-500 h-0.5 opacity-30" />
 
@@ -47,6 +58,11 @@ const Home = ({ beta_list }: Props) => {
             </svg> */}
           </button>
         </div>
+      </div>
+
+      {/* Footer (sign in) */}
+      <div className="absolute bottom-0 left-0 right-0 opacity-50 text-xs flex flex-col items-center justify-center mb-16 animate-[moveUpDown_3s_ease-in-out_infinite]">
+        <button>Press S to sign in</button>
       </div>
     </>
   );
