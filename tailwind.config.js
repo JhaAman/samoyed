@@ -64,6 +64,10 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateY(-30)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        scaleIn: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
     },
   },
