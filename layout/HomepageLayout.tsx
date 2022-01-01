@@ -23,7 +23,7 @@ import {
 import Footer from "../components/homepage/Footer";
 import Header from "../components/homepage/Header";
 import { useRouter } from "next/router";
-import CommandBar, { HomeIcon } from "../components/homepage/commandbar";
+import CommandBar, { HomeIcon } from "../components/homepage/CommandBar";
 
 // TODO: add fathom client, etc.
 
@@ -55,7 +55,7 @@ export default function HomepageLayout({
       id: "homeAction",
       name: "Home",
       shortcut: ["h"],
-      keywords: "back",
+      keywords: "back go home",
       section: "Navigation",
       perform: () => router.push("/"),
       icon: <HomeIcon />,
@@ -94,13 +94,121 @@ export default function HomepageLayout({
     }),
   ];
 
+  const actions = [
+    /* Action */
+    {
+      id: "preorder",
+      name: "Preorder",
+      shortcut: ["P"],
+      keywords: "preorder buy get signup",
+      section: "Action",
+      perform: () => router.push("/preorder"),
+      icon: <HomeIcon />,
+      subtitle: "Limited: preorder lifetime access now",
+    },
+    {
+      id: "waitlist",
+      name: "Join Waitlist",
+      shortcut: ["W"],
+      keywords: "waitlist get signup",
+      section: "Action",
+      perform: () => router.push("/welcome"),
+      icon: <HomeIcon />,
+      // subtitle: "",
+    },
+    {
+      id: "signin",
+      name: "Sign In",
+      shortcut: ["s"],
+      keywords: "signup login signin",
+      section: "Action",
+      perform: () => router.push("/login"),
+      icon: <HomeIcon />,
+      // subtitle: "",
+    },
+    /* Navigation */
+    {
+      id: "home",
+      name: "Home",
+      // shortcut: ["h"],
+      keywords: "home back go",
+      section: "Navigation",
+      perform: () => router.push("/"),
+      icon: <HomeIcon />,
+      // subtitle: "",
+    },
+    // {
+    //   id: "method",
+    //   name: "Method",
+    //   // shortcut: ["m"],
+    //   keywords: "method about rosie",
+    //   section: "Naviagtion",
+    //   perform: () => router.push("/method"),
+    //   icon: <HomeIcon />,
+    //   subtitle: "See how Rosie works",
+    // },
+    // {
+    //   id: "jobs",
+    //   name: "Jobs",
+    //   // shortcut: ["m"],
+    //   keywords: "method about rosie",
+    //   section: "Navigation",
+    //   perform: () => router.push("/jobs"),
+    //   icon: <HomeIcon />,
+    //   subtitle: "We're hiring!",
+    // },
+    // General
+    {
+      id: "theme",
+      name: "Change Theme",
+      // shortcut: ["m"],
+      keywords: "theme dark light",
+      section: "General",
+      // perform: () => router.push("/jobs"),
+      icon: <HomeIcon />,
+      subtitle: "Don't like dark mode?",
+    },
+    {
+      id: "contact",
+      name: "Get in Contact",
+      // shortcut: ["m"],
+      keywords: "contact email hello",
+      section: "General",
+      // perform: () => router.push("/jobs"),
+      icon: <HomeIcon />,
+      subtitle: "Talk to us!",
+    },
+    // Social
+    {
+      id: "twitter",
+      name: "Twitter",
+      // shortcut: ["m"],
+      keywords: "twitter tweet social dm",
+      section: "Social",
+      perform: () => window.open("https://twitter.com/Rosie_HQ", "_blank"),
+      icon: <HomeIcon />,
+      // subtitle: "",
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      // shortcut: ["m"],
+      keywords: "linkedin social job",
+      section: "Social",
+      perform: () =>
+        window.open("https://www.linkedin.com/company/rosieos/", "_blank"),
+      icon: <HomeIcon />,
+      // subtitle: "Don't like dark mode?",
+    },
+  ];
+
   return (
     <>
       <KBarProvider
         options={{
           enableHistory: true,
         }}
-        actions={initialActions}
+        actions={actions}
       >
         <CommandBar />
         {meta}
