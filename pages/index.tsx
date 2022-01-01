@@ -1,22 +1,11 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import supabase from "../utils/supabase";
 import styles from "../styles/Home.module.css";
-import { styled } from "@stitches/react";
 import { useUser } from "../utils/user";
 import { ReactElement, useEffect, useState } from "react";
 import ThemeSwitch from "../components/ThemeSwitch";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../components/homepage/Meta";
-import { violet } from "@radix-ui/colors";
-import * as SeparatorPrimitive from "@radix-ui/react-separator";
-
-const StyledSeparator = styled(SeparatorPrimitive.Root, {
-  backgroundColor: violet.violet6,
-  "&[data-orientation=horizontal]": { height: 1, width: "100%" },
-  "&[data-orientation=vertical]": { height: "100%", width: 1 },
-});
+import * as Separator from "@radix-ui/react-separator";
 
 interface Props {
   beta_list: {
@@ -39,7 +28,7 @@ const Home = ({ beta_list }: Props) => {
             </h1>
             <p>A React developer best friend.</p>
           </div>
-          <StyledSeparator css={{ margin: "15px 0" }} />
+          <Separator.Root className="w-40 my-5 bg-gray-500 h-0.5 opacity-30" />
           <div>
             <p>next</p>
           </div>

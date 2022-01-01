@@ -4,27 +4,30 @@
 
 /* Blog post on how to use below themes: https://darrenwhite.dev/blog/nextjs-tailwindcss-theming */
 
-/* Dark theme by default */
+/* Default dark theme */
 :root {
-  --background: theme("colors.black");
-  --background-secondary: theme("colors.gray.800");
+  --overlay-light: theme("colors.dark.overlay-light");
+  --overlay-dark: theme("colors.dark.overlay-dark");
+  --surface: theme("colors.dark.surface");
+  --base: theme("colors.dark.base");
+  --overflow: theme("colors.dark.overflow");
+
+  --primary-dark: theme("colors.rosie.700");
+  --primary: theme("colors.rosie.500");
+  --primary-light: theme("colors.rosie.300");
 
   --accent-dark: theme("colors.fuchsia.900");
-  --accent-medium: theme("colors.fuchsia.700");
+  --accent: theme("colors.fuchsia.700");
   --accent-light: theme("colors.fuchsia.500");
-
-  --primary-dark: theme("colors.gray.300");
-  --primary-medium: theme("colors.gray.200");
-  --primary-light: theme("colors.gray.100");
 }
 
-/* Classic light theme */
+/* Default light theme */
 [data-theme="light"] {
   --background: theme("colors.white");
   --background-secondary: theme("colors.gray.50");
 
   --primary-dark: theme("colors.gray.900");
-  --primary-medium: theme("colors.gray.700");
+  --primary: theme("colors.gray.700");
   --primary-light: theme("colors.gray.500");
 }
 
