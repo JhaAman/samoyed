@@ -23,7 +23,6 @@ import {
 import Footer from "../components/homepage/Footer";
 import Header from "../components/homepage/Header";
 import { useRouter } from "next/router";
-import CommandBar from "../components/homepage/CommandBar";
 import {
   ClockIcon,
   EmailIcon,
@@ -34,6 +33,7 @@ import {
   ThemeIcon,
   TwitterIcon,
 } from "../components/icons";
+import CommandBar from "../components/homepage/commandbar";
 
 // TODO: add fathom client, etc.
 
@@ -109,7 +109,7 @@ export default function HomepageLayout({
     {
       id: "preorder",
       name: "Preorder",
-      shortcut: ["P"],
+      shortcut: ["p"],
       keywords: "preorder buy get signup",
       section: "Action",
       perform: () => router.push("/preorder"),
@@ -119,7 +119,7 @@ export default function HomepageLayout({
     {
       id: "waitlist",
       name: "Join Waitlist",
-      shortcut: ["W"],
+      shortcut: ["w"],
       keywords: "waitlist get signup",
       section: "Action",
       perform: () => router.push("/welcome"),
@@ -129,7 +129,7 @@ export default function HomepageLayout({
     {
       id: "signin",
       name: "Sign In",
-      shortcut: ["S"],
+      shortcut: ["s"],
       keywords: "signup login signin",
       section: "Action",
       perform: () => router.push("/login"),
