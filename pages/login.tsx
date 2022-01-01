@@ -26,14 +26,10 @@ const Login = ({ beta_list }: Props) => {
   });
 
   useEffect(() => {
-    console.log("login checking user", user);
-
     if (user) {
       router.push("/dashboard");
     }
-
-    console.log("beta_list", beta_list);
-  }, []);
+  }, [router, user]);
 
   const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

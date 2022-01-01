@@ -19,12 +19,10 @@ const Home = ({ beta_list }: Props) => {
   const { user } = useUser();
 
   useEffect(() => {
-    console.log("index checking user", user);
     if (user) {
-      console.log("user");
       router.push("/dashboard");
     }
-  }, []);
+  }, [router, user]);
 
   return (
     <>
