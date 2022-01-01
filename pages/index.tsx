@@ -97,10 +97,12 @@ const Home = ({ beta_list }: Props) => {
       <div className="flex min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
         <div className="flex flex-col items-center justify-center flex-1 ">
           <div className="justify-center text-center">
-            <h1 className="my-3 text-4xl">
+            <h1 className="my-3 animate-[fadeIn_0.5s_linear] text-4xl">
               Welcome to <span className="font-bold text-primary">Rosie</span>.
             </h1>
-            <p>A React developer{"'"}s best friend</p>
+            <p className="animate-[fadeIn_0.5s_linear]">
+              A React developer{"'"}s best friend
+            </p>
           </div>
           <Separator.Root className="w-40 my-16 bg-gray-500 h-0.5 opacity-30" />
 

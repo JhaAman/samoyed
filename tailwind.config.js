@@ -60,11 +60,15 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(20px)" },
         },
+        fadeIn: {
+          "0%": { opacity: 0, transform: "translateY(-30)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animation-delay")],
 };
