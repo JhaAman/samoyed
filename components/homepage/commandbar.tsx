@@ -108,7 +108,7 @@ export const ResultItem = React.forwardRef(
           padding: "12px 16px",
           background: active ? "var(--a1)" : "transparent",
           borderLeft: `2px solid ${
-            active ? "var(--foreground)" : "transparent"
+            active ? "var(--on-surface)" : "transparent"
           }`,
           display: "flex",
           alignItems: "center",
@@ -116,34 +116,21 @@ export const ResultItem = React.forwardRef(
           cursor: "pointer",
         }}
       >
-        <div className="flex items-center gap-6 text-sm opacity-60">
-          {action.icon && action.icon}
+        <div className="flex items-center gap-6 text-sm">
+          {action.icon && <span className="opacity-70">{action.icon}</span>}
           <div className="flex flex-col">
             <div>
               {ancestors.length > 0 &&
                 ancestors.map((ancestor) => (
                   <React.Fragment key={ancestor.id}>
-                    <span
-                      style={{
-                        opacity: 0.5,
-                        marginRight: 8,
-                      }}
-                    >
-                      {ancestor.name}
-                    </span>
-                    <span
-                      style={{
-                        marginRight: 8,
-                      }}
-                    >
-                      &rsaquo;
-                    </span>
+                    <span className="mr-8 opacity-50">{ancestor.name}</span>
+                    <span className="mr-8">&rsaquo;</span>
                   </React.Fragment>
                 ))}
-              <span>{action.name}</span>
+              <span className="">{action.name}</span>
             </div>
             {action.subtitle && (
-              <span style={{ fontSize: 12 }}>{action.subtitle}</span>
+              <span className="text-xs opacity-70">{action.subtitle}</span>
             )}
           </div>
         </div>
@@ -155,12 +142,7 @@ export const ResultItem = React.forwardRef(
             {action.shortcut.map((sc) => (
               <kbd
                 key={sc}
-                style={{
-                  padding: "4px 6px",
-                  background: "rgba(0 0 0 / .1)",
-                  borderRadius: "4px",
-                  fontSize: 14,
-                }}
+                className="px-1 py-[6px] bg-base border-1 text-sm opacity-80"
               >
                 {sc}
               </kbd>
