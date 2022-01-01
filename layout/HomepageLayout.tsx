@@ -127,16 +127,16 @@ export default function HomepageLayout({
       // subtitle: "",
     },
     /* Navigation */
-    {
-      id: "home",
-      name: "Home",
-      // shortcut: ["h"],
-      keywords: "home back go",
-      section: "Navigation",
-      perform: () => router.push("/"),
-      icon: <HomeIcon />,
-      // subtitle: "",
-    },
+    // {
+    //   id: "home",
+    //   name: "Home",
+    //   // shortcut: ["h"],
+    //   keywords: "home back go",
+    //   section: "Navigation",
+    //   perform: () => router.push("/"),
+    //   icon: <HomeIcon />,
+    //   // subtitle: "",
+    // },
     // {
     //   id: "method",
     //   name: "Method",
