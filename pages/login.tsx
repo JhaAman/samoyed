@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 import HomepageLayout from "../layout/HomepageLayout";
-import Meta from "../components/homepage/Meta";
+import Meta from "../layout/Meta";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 

@@ -4,7 +4,7 @@ import * as Separator from "@radix-ui/react-separator";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 import HomepageLayout from "../layout/HomepageLayout";
-import Meta from "../components/homepage/Meta";
+import Meta from "../layout/Meta";
 
 interface Props {
   beta_list: {
