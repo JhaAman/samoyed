@@ -116,16 +116,9 @@ export const ResultItem = React.forwardRef(
           cursor: "pointer",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: "8px",
-            alignItems: "center",
-            fontSize: 14,
-          }}
-        >
+        <div className="flex items-center gap-6 text-sm opacity-60">
           {action.icon && action.icon}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="flex flex-col">
             <div>
               {ancestors.length > 0 &&
                 ancestors.map((ancestor) => (
