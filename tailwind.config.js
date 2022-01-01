@@ -21,10 +21,17 @@ module.exports = {
         "primary-dark": "var(--primary-dark)",
         primary: "var(--primary)",
         "primary-light": "var(--primary-light)",
+        "on-primary": "var(--on-primary)",
+        "primary-bg-tint": "var(--primary-bg-tint)",
 
         "accent-dark": "var(--accent-dark)",
         accent: "var(--accent)",
         "accent-light": "var(--accent-light)",
+        "on-accent": "var(--on-accent)",
+        "accent-bg-tint": "var(--accent-bg-tint)",
+
+        "hero-left": "var(--hero-left)",
+        "hero-right": "var(--hero-right)",
 
         rosie: {
           50: "#ecaaba",
@@ -44,6 +51,8 @@ module.exports = {
           surface: "#27292D",
           base: "#1F2023",
           overflow: "#010101",
+          "hero-left": "#261722",
+          "hero-right": "#121c23",
         },
       },
     },

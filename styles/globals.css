@@ -15,10 +15,17 @@
   --primary-dark: theme("colors.rosie.700");
   --primary: theme("colors.rosie.500");
   --primary-light: theme("colors.rosie.300");
+  --on-primary: theme("colors.rosie.100");
+  --primary-bg-tint: theme("colors.rosie.900");
 
   --accent-dark: theme("colors.fuchsia.900");
   --accent: theme("colors.fuchsia.700");
   --accent-light: theme("colors.fuchsia.500");
+  --on-accent: theme("colors.fuchsia.100");
+  --accent-bg-tint: theme("colors.fuchsia.900");
+
+  --hero-left: theme("colors.dark.hero-left");
+  --hero-right: theme("colors.dark.hero-right");
 }
 
 /* Default light theme */
