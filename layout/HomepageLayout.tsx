@@ -23,7 +23,8 @@ import {
 import Footer from "../components/homepage/Footer";
 import Header from "../components/homepage/Header";
 import { useRouter } from "next/router";
-import CommandBar, { HomeIcon } from "../components/homepage/CommandBar";
+import CommandBar from "../components/homepage/CommandBar";
+import { HomeIcon } from "../components/icons";
 
 // TODO: add fathom client, etc.
 
