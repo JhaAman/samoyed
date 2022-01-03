@@ -1,8 +1,7 @@
 /* 
-  pages/api/answer/quick.ts
+  pages/api/playground.ts
   ------------------------
-  The core serverless function that gets answers for questions.
-  Deployed to Vercel Serverless.
+  My own version of OpenAI's playground that's more conducive to experimentation
  */
 
 import { NextApiRequest, NextApiResponse } from "next";
