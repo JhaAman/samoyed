@@ -1,6 +1,11 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
+import { QuestionTypeState } from "..";
+
+interface Props {
+  state: QuestionTypeState;
+}
 
 const types = [
   { name: "Explain Concept" },
@@ -9,11 +14,11 @@ const types = [
   { name: "Generate Example" },
 ];
 
-export default function QuestionType() {
+export default function QuestionType({}: Props) {
   const [selected, setSelected] = useState(types[0]);
 
   return (
-    <div className="text-black w-72 top-16">
+    <div className="w-full text-black lg:w-72 top-16">
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           {/* The closed ListBox view */}
