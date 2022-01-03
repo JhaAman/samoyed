@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import QuestionType from "./QuestionType";
 import * as Separator from "@radix-ui/react-separator";
 import ExplainConcept from "./ExplainConcept";
+import Button from "../../ui/Button";
 
 interface Props {}
 
@@ -18,7 +19,7 @@ export default function QuestionPanel({}: Props): ReactElement {
   );
 
   return (
-    <div className="grid w-2/5 grid-cols-1 m-4 bg-base">
+    <div className="grid flex-1 w-2/5 grid-cols-1 m-4 bg-base">
       <div className="mx-5 my-5">
         {/* Question Type Card */}
         <div className="flex flex-col items-center justify-center px-5 py-5 rounded-lg bg-surface">
@@ -32,13 +33,13 @@ export default function QuestionPanel({}: Props): ReactElement {
           {/* Depending on state of questionType, return a div with the type in it */}
           {questionType === QuestionTypeState.ExplainConcept && (
             // <ExplainConcept />
-            <div></div>
+            <div>Aman Jha</div>
           )}
+
+          <Separator.Root className="w-full my-8 bg-gray-500 h-0.5 opacity-30" />
+
+          <Button />
         </div>
-
-        <Separator.Root className="w-full my-8 bg-gray-500 h-0.5 opacity-30" />
-
-        <div className="h-1/6 bg-rosie-200">Submit</div>
       </div>
     </div>
   );
