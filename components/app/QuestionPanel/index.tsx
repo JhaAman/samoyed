@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { motion } from "framer-motion";
+import QuestionType from "./QuestionType";
 
 interface Props {}
 
@@ -11,13 +11,9 @@ export default function QuestionPanel({}: Props): ReactElement {
         <div className="px-3 py-2 rounded-lg bg-surface">
           <h1 className="text-xl">Question Type</h1>
           <h2>Dropdown</h2>
-          <MyComponent />
+          <QuestionType />
         </div>
       </div>
     </div>
   );
 }
-
-export const MyComponent = () => (
-  <motion.div animate={{ scale: 2 }} transition={{ duration: 0.5 }} />
-);

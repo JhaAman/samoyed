@@ -53,9 +53,7 @@ const Dashboard = ({ beta_list }: Props) => {
 };
 
 export const getStaticProps = async () => {
-  const { data: beta_list, error } = await supabase
-    .from("beta_list")
-    .select("*");
+  const { data: beta_list } = await supabase.from("beta_list").select("*");
   return {
     props: {
       beta_list,
