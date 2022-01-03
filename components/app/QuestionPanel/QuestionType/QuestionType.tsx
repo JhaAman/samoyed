@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
-import { QuestionTypeState } from "..";
+import { QuestionTypeState } from "../QuestionPanel";
 
 interface Props {
-  state: QuestionTypeState;
+  changeState: React.Dispatch<React.SetStateAction<QuestionTypeState>>;
 }
 
 const types = [
@@ -14,11 +14,29 @@ const types = [
   { name: "Generate Example" },
 ];
 
-export default function QuestionType({}: Props) {
+export default function QuestionType({ changeState }: Props) {
   const [selected, setSelected] = useState(types[0]);
 
+  // Change question type in the panel
+  useEffect(() => {
+    switch (selected.name) {
+      case "Explain Concept":
+        changeState(QuestionTypeState.ExplainConcept);
+        break;
+      case "Fix this Error":
+        changeState(QuestionTypeState.FixError);
+        break;
+      case "How do I do this?":
+        changeState(QuestionTypeState.HowTo);
+        break;
+      case "Generate Example":
+        changeState(QuestionTypeState.GenExample);
+        break;
+    }
+  }, [changeState, selected]);
+
   return (
-    <div className="w-full text-black lg:w-72 top-16">
+    <div className="z-10 w-full text-black lg:w-72 top-16">
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           {/* The closed ListBox view */}
