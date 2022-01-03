@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import QuestionPanel from "../../components/app/QuestionPanel";
 import supabase from "../../utils/supabase";
 import { useUser } from "../../utils/user";
 
@@ -41,25 +42,10 @@ const Dashboard = ({ beta_list }: Props) => {
         <div className="flex w-full h-10 bg-primary"></div>
         <div className="flex flex-1 w-full bg-overflow">
           {/* Question panel */}
-          <div className="flex flex-col items-center w-2/5 m-4 bg-base">
-            <div className="mx-5">
-              {/* Question Type */}
-              <div className="bg-surface ">
-                <h1 className="text-xl">Question Type</h1>
-                <h2>Dropdown</h2>
-              </div>
-            </div>
-          </div>
+          <QuestionPanel />
+
           {/* Answer panel */}
-          <div className="flex flex-col items-center w-3/5 m-4 bg-base">
-            <div className="mx-5">
-              {/* Question Type */}
-              <div className="bg-surface ">
-                <h1 className="text-xl">Question Type</h1>
-                <h2>Dropdown</h2>
-              </div>
-            </div>
-          </div>
+          <div className="flex flex-col items-center w-3/5 m-4 bg-base"></div>
         </div>
       </div>
     </>
