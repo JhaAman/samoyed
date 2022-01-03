@@ -33,7 +33,17 @@ const Playground = ({ beta_list }: Props): ReactElement => {
     setMessage({});
 
     // TODO: answer question
-    const response = await axios.post(`${base_url}` + "api/question", {});
+
+    console.log(`${base_url}` + "api/answer/quick");
+    const response = await axios.post(`${base_url}` + "api/answer/quick", {
+      question: question,
+      email: user?.email || "unauthenticated",
+    });
+
+    setMessage({
+      type: "success",
+      content: response.data.answer,
+    });
 
     setLoading(false);
   };
