@@ -39,7 +39,9 @@ const Dashboard = ({ beta_list }: Props) => {
       {/* Main App */}
       <div className="flex flex-col h-screen">
         {/* Header search bar */}
-        <div className="flex w-full h-10 bg-primary"></div>
+        <div className="flex w-full h-10 bg-rosie-900"></div>
+
+        {/* Main App */}
         <div className="flex flex-1 w-full bg-overflow">
           {/* Question panel */}
           <QuestionPanel />
