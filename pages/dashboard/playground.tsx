@@ -36,7 +36,7 @@ const Playground = ({ beta_list }: Props): ReactElement => {
 
     // TODO: answer question
 
-    console.log(`${base_url}` + "api/answer/quick");
+    console.log(`${base_url}` + "/api/answer/quick");
     const response = await axios.post(`${base_url}` + "api/answer/quick", {
       question: question,
       email: user?.email || "unauthenticated",
