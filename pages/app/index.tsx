@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import AnswerPanel from "../../components/app/AnswerPanel";
 import QuestionPanel from "../../components/app/QuestionPanel";
 import supabase from "../../utils/supabase";
 import { useUser } from "../../utils/user";
@@ -12,7 +13,7 @@ interface Props {
   }[];
 }
 
-const Dashboard = ({ beta_list }: Props) => {
+const App = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user, profile, logout } = useUser();
 
@@ -47,7 +48,7 @@ const Dashboard = ({ beta_list }: Props) => {
           <QuestionPanel />
 
           {/* Answer panel */}
-          <div className="flex flex-col items-center w-3/5 m-4 bg-base"></div>
+          <AnswerPanel />
         </div>
       </div>
     </>
@@ -63,4 +64,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Dashboard;
+export default App;

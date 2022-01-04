@@ -19,7 +19,7 @@ export default function QuestionPanel({}: Props): ReactElement {
   );
 
   return (
-    <div className="grid flex-1 w-2/5 grid-cols-1 m-4 bg-base">
+    <div className="grid flex-1 w-1/2 grid-cols-1 m-4 bg-base">
       <div className="mx-5 my-5">
         {/* Question Type Card */}
         <div className="flex flex-col items-center justify-center px-5 py-5 rounded-lg bg-surface">
