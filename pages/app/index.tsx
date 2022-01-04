@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import AnswerPanel from "../../components/app/AnswerPanel";
 import QuestionPanel from "../../components/app/QuestionPanel";
+import QuestionType from "../../components/app/QuestionPanel/QuestionType";
+import { QuestionTypeState } from "../../components/app/QuestionPanel/QuestionType/QuestionType";
 import supabase from "../../utils/supabase";
 import { useUser } from "../../utils/user";
 
@@ -16,6 +19,10 @@ interface Props {
 const App = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user, profile, logout } = useUser();
+
+  const [questionType, setQuestionType] = useState<QuestionTypeState>(
+    QuestionTypeState.ExplainConcept
+  );
 
   // See if user access abilities
   useEffect(() => {
@@ -40,10 +47,12 @@ const App = ({ beta_list }: Props) => {
       {/* Main App */}
       <div className="h-screen ">
         {/* Header search bar */}
-        <div className="absolute w-full h-10 bg-rosie-900"></div>
+        <div className="absolute flex items-center justify-center w-screen h-12 bg-rosie-900">
+          <QuestionType changeState={setQuestionType} />
+        </div>
 
         {/* Main App */}
-        <div className="flex flex-row w-full max-h-screen min-h-screen pt-10 bg-overflow">
+        <div className="flex flex-row w-full max-h-screen min-h-screen pt-12 bg-overflow">
           {/* Question panel */}
           <QuestionPanel />
 

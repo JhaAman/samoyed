@@ -1,7 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
-import { QuestionTypeState } from "../QuestionPanel";
+
+export enum QuestionTypeState {
+  ExplainConcept,
+  FixError,
+  HowTo,
+  GenExample,
+}
 
 interface Props {
   changeState: React.Dispatch<React.SetStateAction<QuestionTypeState>>;
@@ -36,7 +42,7 @@ export default function QuestionType({ changeState }: Props) {
   }, [changeState, selected]);
 
   return (
-    <div className="z-10 w-full text-black lg:w-72 top-16">
+    <div className="z-10 text-black w-72 lg:w-96 ">
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           {/* The closed ListBox view */}
