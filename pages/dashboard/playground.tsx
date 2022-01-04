@@ -32,11 +32,11 @@ const Playground = ({ beta_list }: Props): ReactElement => {
   const handleSubmitQuestion = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setMessage({});
 
-    // TODO: answer question
-
-    console.log(`${base_url}` + "/api/answer/quick");
+    setMessage({
+      type: "success",
+      content: "URL used: " + `${base_url}` + "/api/answer/quick",
+    });
     const response = await axios.post(`${base_url}` + "/api/answer/quick", {
       question: question,
       email: user?.email || "unauthenticated",
