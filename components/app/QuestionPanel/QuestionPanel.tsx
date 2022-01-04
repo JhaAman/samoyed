@@ -11,7 +11,7 @@ interface Props {}
 export default function QuestionPanel({}: Props): ReactElement {
   return (
     // Card bg
-    <div className="m-10 overflow-y-auto rounded h-fit bg-surface">
+    <div className="mx-10 mt-10 overflow-y-auto rounded h-96 bg-surface">
       <div className="flex m-5">
         {/* Left */}
         <div className="flex flex-col h-full">
