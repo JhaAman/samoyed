@@ -7,8 +7,8 @@ import supabase from "../../utils/supabase";
 import { useUser } from "../../utils/user";
 import axios from "axios";
 
-const base_url = process.env.VERCEL
-  ? process.env.VERCEL_URL
+const base_url = process.env.NEXT_PUBLIC_VERCEL
+  ? process.env.NEXT_PUBLIC_VERCEL_URL
   : process.env.NEXT_PUBLIC_BASE_URL;
 
 interface Props {
