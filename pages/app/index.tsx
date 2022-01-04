@@ -38,12 +38,12 @@ const App = ({ beta_list }: Props) => {
   return (
     <>
       {/* Main App */}
-      <div className="flex flex-col h-screen ">
+      <div className="h-screen ">
         {/* Header search bar */}
-        <div className="flex w-full h-10 bg-rosie-900"></div>
+        <div className="absolute w-full h-10 bg-rosie-900"></div>
 
         {/* Main App */}
-        <div className="flex flex-row flex-1 w-full bg-overflow">
+        <div className="flex flex-row w-full max-h-screen min-h-screen pt-10 bg-overflow">
           {/* Question panel */}
           <QuestionPanel />
 

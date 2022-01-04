@@ -10,38 +10,6 @@ export default function ExplainConcept({}: Props): ReactElement {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
         quisquam.
       </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        quisquam.
-      </p>
     </div>
   );
 }
