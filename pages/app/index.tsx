@@ -72,8 +72,10 @@ const App = ({ beta_list }: Props) => {
           </div>
         </div>
         {/* Right Side */}
-        <div className="flex flex-col w-2/3 h-screen border-l-2 bg-base border-l-white">
-          Chat
+        <div className="flex flex-col w-2/3 h-screen overflow-y-scroll border-l-2 bg-base border-l-white">
+          <QuestionPanel />
+
+          <AnswerPanel />
         </div>
       </div>
     </>

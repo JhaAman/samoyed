@@ -12,8 +12,6 @@ if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   base_url = process.env.NEXT_PUBLIC_VERCEL_URL;
 }
 
-// const base_url =
-
 interface Props {
   beta_list: {
     id: number;
