@@ -54,7 +54,7 @@ async function getAIResponse(prompt: string, hash: string) {
     engine: "davinci-codex",
     prompt: prompt,
     maxTokens: 256,
-    temperature: 0.5,
+    temperature: 0.4,
     topP: 1,
     stop: "###",
     user: hash,
