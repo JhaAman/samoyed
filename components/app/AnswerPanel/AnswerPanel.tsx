@@ -11,7 +11,7 @@ export default function AnswerPanel({}: Props): ReactElement {
     <div className="mx-10 mb-10 overflow-y-auto rounded h-fit bg-surface">
       <div className="flex justify-between mx-16 my-8 whitespace-pre-wrap">
         {/* Left */}
-        <div className="flex flex-col h-full p-4 rounded bg-overlay-dark">
+        <div className="flex flex-col w-1/2 h-full p-4 rounded bg-overlay-dark">
           <div className="flex flex-col ">
             <div>{`Waiting for a question...`}</div>
           </div>
