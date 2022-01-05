@@ -1,11 +1,22 @@
-import React, { ReactElement } from "react";
+import React, { FormEvent, ReactElement, useState } from "react";
 import Button from "../../ui/Button";
 import Slider from "./Slider";
 import QuestionInput from "./QuestionInput";
 
-interface Props {}
+interface Props {
+  handleSubmitQuestion: (
+    e: FormEvent<HTMLFormElement>,
+    question: string
+  ) => Promise<void>;
+  loading: boolean;
+}
 
-export default function QuestionPanel({}: Props): ReactElement {
+export default function QuestionPanel({
+  handleSubmitQuestion,
+  loading,
+}: Props): ReactElement {
+  const [question, setQuestion] = useState("");
+
   return (
     // Card bg
     <div className="mx-10 mt-10 overflow-y-auto rounded h-80 bg-surface">
@@ -27,21 +38,27 @@ export default function QuestionPanel({}: Props): ReactElement {
           </div>
 
           {/* Submit */}
-          <div className="flex justify-center mt-8">
+          <form
+            className="flex justify-center mt-8"
+            onSubmit={(e) => {
+              handleSubmitQuestion(e, question);
+            }}
+          >
             <Button
               className="w-full"
-              onClick={() => {}}
-              disabled={false}
               variant="slim"
+              type="submit"
+              loading={loading}
+              disabled={!question.length}
             >
               Submit
             </Button>
-          </div>
+          </form>
         </div>
 
         {/* Right */}
         <div className="w-1/2 ">
-          <QuestionInput />
+          <QuestionInput question={question} setQuestion={setQuestion} />
         </div>
       </div>
     </div>

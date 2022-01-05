@@ -1,12 +1,18 @@
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { useEffect } from "react";
 import AnswerPanel from "../../components/app/AnswerPanel";
 import History from "../../components/app/History";
 import QuestionPanel from "../../components/app/QuestionPanel";
 import supabase from "../../utils/supabase";
 import { useUser } from "../../utils/user";
+
+let base_url = process.env.NEXT_PUBLIC_BASE_URL;
+if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
+  base_url = process.env.NEXT_PUBLIC_VERCEL_URL;
+}
 
 interface Props {
   beta_list: {
@@ -20,7 +26,13 @@ const App = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user, profile, logout } = useUser();
 
-  // See if user access abilities
+  const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState<{ type?: string; content?: string }>({
+    type: "",
+    content: "",
+  });
+
+  // See user access abilities
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -38,6 +50,30 @@ const App = ({ beta_list }: Props) => {
     }
   }, [beta_list, router, user]);
 
+  const handleSubmitQuestion = async (
+    e: FormEvent<HTMLFormElement>,
+    question: string
+  ) => {
+    e.preventDefault();
+    setLoading(true);
+
+    setAnswer({
+      type: "success",
+      content: "Answer submitted",
+    });
+    // const response = await axios.post(`${base_url}` + "/api/answer/quick", {
+    //   question: question,
+    //   email: user?.email || "unauthenticated",
+    // });
+
+    // setMessage({
+    //   type: "success",
+    //   content: response.data.answer,
+    // });
+
+    setLoading(false);
+  };
+
   return (
     <>
       {/* Main App */}
@@ -46,7 +82,10 @@ const App = ({ beta_list }: Props) => {
         {/* <History/> */}
         {/* Right Side */}
         <div className="flex flex-col w-full h-screen gap-5 overflow-y-scroll bg-base border-l-white">
-          <QuestionPanel />
+          <QuestionPanel
+            handleSubmitQuestion={handleSubmitQuestion}
+            loading={loading}
+          />
 
           <AnswerPanel />
         </div>
