@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import * as Separator from "@radix-ui/react-separator";
 import Button from "../../ui/Button";
 import { motion, AnimateSharedLayout } from "framer-motion";
+import Clarify from "./Clarify";
 
 interface Props {
   answer: { type?: string; content?: string };
@@ -22,13 +23,11 @@ export default function AnswerPanel({ answer }: Props): ReactElement {
         </div>
 
         {/* Right */}
-        {/* <div className="flex flex-col h-full p-4 ml-8 rounded bg-overlay-dark">
+        <div className="flex flex-col h-full p-4 ml-8 rounded bg-overlay-dark">
           <div className="flex flex-col ">
-            <div>
-              Clarifying questions chat is currently disabled. Check back later!
-            </div>
+            <Clarify />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
