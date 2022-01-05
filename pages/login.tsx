@@ -27,7 +27,7 @@ const Login = ({ beta_list }: Props) => {
 
   useEffect(() => {
     if (user) {
-      router.push("/dashboard");
+      router.push("/app");
     }
   }, [router, user]);
 

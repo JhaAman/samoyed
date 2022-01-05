@@ -20,7 +20,7 @@ const Home = ({ beta_list }: Props) => {
 
   useEffect(() => {
     if (user) {
-      router.push("/dashboard");
+      router.push("/app");
     }
   }, [router, user]);
 
@@ -78,6 +78,7 @@ export const getStaticProps = async () => {
   const { data: beta_list, error } = await supabase
     .from("beta_list")
     .select("*");
+
   return {
     props: {
       beta_list,
