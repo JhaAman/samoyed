@@ -59,7 +59,7 @@ const App = ({ beta_list }: Props) => {
 
     setAnswer({
       type: "success",
-      content: "Answer submitted",
+      content: "Thinking...",
     });
     const response = await axios.post(`${base_url}` + "/api/answer/quick", {
       question: question,
