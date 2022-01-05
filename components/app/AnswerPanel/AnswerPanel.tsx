@@ -8,12 +8,14 @@ interface Props {}
 export default function AnswerPanel({}: Props): ReactElement {
   return (
     // Card bg
-    <div className="mx-10 mb-10 overflow-y-auto rounded h-fit bg-surface">
+    <div className="flex-1 mx-10 mb-10 overflow-y-auto rounded h-fit bg-surface">
       <div className="flex justify-between mx-16 my-8 whitespace-pre-wrap">
         {/* Left */}
-        <div className="flex flex-col w-1/2 h-full p-4 rounded bg-overlay-dark">
-          <div className="flex flex-col ">
-            <div>{`Waiting for a question...`}</div>
+        <div className="flex flex-col w-1/2 h-full ">
+          <div className="flex-grow p-4 rounded bg-overlay-dark">
+            <div className="flex flex-col ">
+              <div>{`Waiting for a question...`}</div>
+            </div>
           </div>
         </div>
 
