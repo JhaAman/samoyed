@@ -53,7 +53,7 @@ module.exports = {
         },
         dark: {
           "overlay-light": "#555555",
-          "overlay-dark": "#2B2B2B",
+          "overlay-dark": "#383838",
           surface: "#252525",
           base: "#1A1A1A",
           overflow: "#111111",
