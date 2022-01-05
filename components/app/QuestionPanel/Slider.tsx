@@ -9,7 +9,7 @@ const StyledSlider = styled(SliderPrimitive.Root, {
   alignItems: "center",
   userSelect: "none",
   touchAction: "none",
-  width: 200,
+  width: 320,
 
   '&[data-orientation="horizontal"]': {
     height: 20,
