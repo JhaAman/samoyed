@@ -3,9 +3,11 @@ import * as Separator from "@radix-ui/react-separator";
 import Button from "../../ui/Button";
 import { motion, AnimateSharedLayout } from "framer-motion";
 
-interface Props {}
+interface Props {
+  answer: { type?: string; content?: string };
+}
 
-export default function AnswerPanel({}: Props): ReactElement {
+export default function AnswerPanel({ answer }: Props): ReactElement {
   return (
     // Card bg
     <div className="flex-1 mx-10 mb-10 overflow-y-auto rounded h-fit bg-surface">
@@ -14,7 +16,7 @@ export default function AnswerPanel({}: Props): ReactElement {
         <div className="flex flex-col w-1/2 h-full ">
           <div className="flex-grow p-4 rounded bg-overlay-dark">
             <div className="flex flex-col ">
-              <div>{`Waiting for a question...`}</div>
+              <div>{answer.content}</div>
             </div>
           </div>
         </div>

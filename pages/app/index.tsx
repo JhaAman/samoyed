@@ -29,7 +29,7 @@ const App = ({ beta_list }: Props) => {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<{ type?: string; content?: string }>({
     type: "",
-    content: "",
+    content: "Waiting for a question...",
   });
 
   // See user access abilities
@@ -61,15 +61,15 @@ const App = ({ beta_list }: Props) => {
       type: "success",
       content: "Answer submitted",
     });
-    // const response = await axios.post(`${base_url}` + "/api/answer/quick", {
-    //   question: question,
-    //   email: user?.email || "unauthenticated",
-    // });
+    const response = await axios.post(`${base_url}` + "/api/answer/quick", {
+      question: question,
+      email: user?.email || "unauthenticated",
+    });
 
-    // setMessage({
-    //   type: "success",
-    //   content: response.data.answer,
-    // });
+    setAnswer({
+      type: "success",
+      content: response.data.answer,
+    });
 
     setLoading(false);
   };
@@ -87,7 +87,7 @@ const App = ({ beta_list }: Props) => {
             loading={loading}
           />
 
-          <AnswerPanel />
+          <AnswerPanel answer={answer} />
         </div>
       </div>
     </>
