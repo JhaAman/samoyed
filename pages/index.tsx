@@ -33,7 +33,7 @@ const keyMap = {
 const Home = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user } = useUser();
-  const [state, setState] = useState(landingState.homepage);
+  const [state, setState] = useState(0);
 
   useEffect(() => {
     if (user) {
@@ -41,42 +41,53 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
-  function handleEnter() {
-    switch (state) {
-      case landingState.homepage:
-        setState(landingState.press);
-        break;
-      case landingState.press:
-        setState(landingState.demo);
-        break;
-      case landingState.demo:
-        setState(landingState.preorder);
-        break;
-      case landingState.preorder:
-        // setState(landingState.preorder);
-        break;
+  function handleForward() {
+    if (state === "homepage") {
+      console.log("current state:  homepage");
+    } else if (state === "press") {
+      console.log("current state:  press");
+    } else if (state === "demo") {
+      console.log("current state:  demo");
+    } else if (state === "preorder") {
+      console.log("current state:  preorder");
+    }
+
+    if (state === "homepage") {
+      console.log("home to press");
+      setState("press");
+    } else if (state === "press") {
+      console.log("press to demo");
+      setState("demo");
+    } else if (state === "demo") {
+      console.log("demo to preorder");
+      setState("preorder");
+    } else if (state === "preorder") {
+      console.log("preorder to preorder");
+      setState("homepage");
     }
   }
 
   function handleBack() {
-    switch (state) {
-      case landingState.homepage:
-        // setState(landingState.homepage);
-        break;
-      case landingState.press:
-        setState(landingState.homepage);
-        break;
-      case landingState.demo:
-        setState(landingState.press);
-        break;
-      case landingState.preorder:
-        setState(landingState.demo);
-        break;
+    if (state === "homepage") {
+      console.log("homepage to homepage");
+      setState("homepage");
+    } else if (state === "press") {
+      console.log("press to homepage");
+      setState("homepage");
+    } else if (state === "demo") {
+      console.log("demo to press");
+      setState("press");
+    } else if (state === "preorder") {
+      console.log("preorder to demo");
+      setState("demo");
     }
   }
 
-  useHotkeys("enter", () => console.log("enter"));
-  useHotkeys("backspace", () => console.log("backspace"));
+  useHotkeys("enter", () => {
+    console.log(state);
+    handleForward();
+  });
+  useHotkeys("backspace", () => handleBack());
   useHotkeys("s", () => {
     router.push("/login");
   });
@@ -85,11 +96,106 @@ const Home = ({ beta_list }: Props) => {
   return (
     // <HotKeys handlers={handlers}>
     <>
-      {state === landingState.homepage && (
+      {state === "homepage" && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
             <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
               As Easy As Coding Gets
+            </h1>
+            <h1>{count}</h1>
+            <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
+              We{"'"}re tired of crawling through StackOverflow and done with
+              tutorial hell.
+              <br />
+              So we built{" "}
+              <span className="font-semibold text-primary">Rosie</span>
+            </h2>
+            <button
+              onClick={() => {}}
+              className="animate-[fadeIn_0.5s_linear] flex items-center mt-4 py-2 text-sm font-medium text-white transition transform rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
+            >
+              <span className="">
+                Press{" "}
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  enter
+                </span>{" "}
+                to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
+              </span>
+            </button>
+          </div>
+
+          <div className=" right">
+            <Image src="/ss.png" alt="Rosie" width={653} height={500} />
+          </div>
+        </div>
+      )}
+      {state === "press" && (
+        <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+          <div className="w-1/2 ml-20 left">
+            <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
+              press
+            </h1>
+            <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
+              We{"'"}re tired of crawling through StackOverflow and done with
+              tutorial hell.
+              <br />
+              So we built{" "}
+              <span className="font-semibold text-primary">Rosie</span>
+            </h2>
+            <button
+              onClick={() => {}}
+              className="animate-[fadeIn_0.5s_linear] flex items-center mt-4 py-2 text-sm font-medium text-white transition transform rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
+            >
+              <span className="">
+                Press{" "}
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  enter
+                </span>{" "}
+                to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
+              </span>
+            </button>
+          </div>
+
+          <div className=" right">
+            <Image src="/ss.png" alt="Rosie" width={653} height={500} />
+          </div>
+        </div>
+      )}
+      {state === "demo" && (
+        <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+          <div className="w-1/2 ml-20 left">
+            <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">demo</h1>
+            <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
+              We{"'"}re tired of crawling through StackOverflow and done with
+              tutorial hell.
+              <br />
+              So we built{" "}
+              <span className="font-semibold text-primary">Rosie</span>
+            </h2>
+            <button
+              onClick={() => {}}
+              className="animate-[fadeIn_0.5s_linear] flex items-center mt-4 py-2 text-sm font-medium text-white transition transform rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
+            >
+              <span className="">
+                Press{" "}
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  enter
+                </span>{" "}
+                to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
+              </span>
+            </button>
+          </div>
+
+          <div className=" right">
+            <Image src="/ss.png" alt="Rosie" width={653} height={500} />
+          </div>
+        </div>
+      )}
+      {state === "preorder" && (
+        <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+          <div className="w-1/2 ml-20 left">
+            <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
+              preorder
             </h1>
             <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
               We{"'"}re tired of crawling through StackOverflow and done with
