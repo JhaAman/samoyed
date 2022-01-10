@@ -41,8 +41,8 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
-  function handleEnter(){
-    switch(state){
+  function handleEnter() {
+    switch (state) {
       case landingState.homepage:
         setState(landingState.press);
         break;
@@ -53,14 +53,15 @@ const Home = ({ beta_list }: Props) => {
         setState(landingState.preorder);
         break;
       case landingState.preorder:
-        // setState(landingState.preorder); // do nothing
+        // setState(landingState.preorder);
         break;
+    }
   }
 
-  function handleBack(){
-    switch(state){
+  function handleBack() {
+    switch (state) {
       case landingState.homepage:
-        // setState(landingState.homepage); // do nothing
+        // setState(landingState.homepage);
         break;
       case landingState.press:
         setState(landingState.homepage);
