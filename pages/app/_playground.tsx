@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { FormEvent, ReactElement, useEffect, useState } from "react";
-import useSwr from "swr";
 import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 import supabase from "../../utils/supabase";

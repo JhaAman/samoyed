@@ -48,6 +48,8 @@ const Login = ({ beta_list }: Props) => {
           type: "error",
           content: "That email isn't on the beta list.",
         });
+
+    setLoading(false);
   };
 
   return (

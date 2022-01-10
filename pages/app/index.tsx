@@ -27,10 +27,12 @@ const App = ({ beta_list }: Props) => {
   const { user, profile, logout } = useUser();
 
   const [loading, setLoading] = useState(false);
+  const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState<{ type?: string; content?: string }>({
     type: "",
     content: "Waiting for a question...",
   });
+  const [clarifyingPrompt, setClarifyingPrompt] = useState("");
 
   // See user access abilities
   useEffect(() => {
@@ -52,17 +54,18 @@ const App = ({ beta_list }: Props) => {
 
   const handleSubmitQuestion = async (
     e: FormEvent<HTMLFormElement>,
-    question: string
+    q: string
   ) => {
     e.preventDefault();
     setLoading(true);
-
+    setQuestion(q);
     setAnswer({
       type: "success",
-      content: "Answer submitted",
+      content: "Thinking...",
     });
+
     const response = await axios.post(`${base_url}` + "/api/answer/quick", {
-      question: question,
+      question: q,
       email: user?.email || "unauthenticated",
     });
 
@@ -70,6 +73,8 @@ const App = ({ beta_list }: Props) => {
       type: "success",
       content: response.data.answer,
     });
+
+    setClarifyingPrompt(q + `\n\n\n` + response.data.answer);
 
     setLoading(false);
   };
@@ -87,7 +92,7 @@ const App = ({ beta_list }: Props) => {
             loading={loading}
           />
 
-          <AnswerPanel answer={answer} />
+          <AnswerPanel answer={answer} clarifyingPrompt={clarifyingPrompt} />
         </div>
       </div>
     </>
