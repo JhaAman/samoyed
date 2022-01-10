@@ -5,15 +5,20 @@
  */
 
 import React, { ReactElement } from "react";
+import { useRouter } from "next/router";
 
 interface Props {}
 
 export default function Footer({}: Props): ReactElement {
+  const router = useRouter();
+
   return (
     <footer>
       {/* Footer (sign in) */}
       <div className="animate-[fadeIn_0.5s_linear] absolute bottom-0 left-0 right-0 opacity-50 text-xs flex flex-col items-center justify-center mb-16 animate-[moveUpDown_3s_ease-in-out_infinite]">
-        <button>Press S to sign in</button>
+        <button onClick={() => router.push("/login")}>
+          Press S to sign in
+        </button>
       </div>
     </footer>
   );
