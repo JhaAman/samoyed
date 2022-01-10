@@ -9,22 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          {
-            '"Avenir Next"': [
-              {
-                weight: "800",
-                src: "/fonts/avenir-next-lt-pro/AvenirNextHeavy.ttf",
-              },
-              {
-                weight: "700",
-                src: "/fonts/AvenirNext/AvenirNextBold.ttf",
-              },
-            ],
-          },
-          ,
-          ...defaultTheme.fontFamily.sans,
-        ], // Ensure fonts with spaces have " " surrounding it.
+        sans: ["avenir-pro", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
       },
       colors: {
         emerald: colors.emerald,

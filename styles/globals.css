@@ -58,3 +58,55 @@
   --primary-medium: theme("colors.gray.200");
   --primary-light: theme("colors.gray.100");
 } */
+
+/* Light */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-UltLtCn.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* Normal */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-Cn.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Medium (base) */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-Regular.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Semibold */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-Demi.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bold */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Black */
+@font-face {
+  font-family: "avenir-pro";
+  src: url("/fonts/avenir-next-lt-pro/AvenirNextLTPro-HeavyCn.woff")
+    format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
