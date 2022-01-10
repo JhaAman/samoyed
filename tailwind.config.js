@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -8,7 +9,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["avenir-next", "sans"], // Ensure fonts with spaces have " " surrounding it.
+        sans: [
+          {
+            '"Avenir Next"': [
+              {
+                weight: "800",
+                src: "/fonts/avenir-next-lt-pro/AvenirNextHeavy.ttf",
+              },
+              {
+                weight: "700",
+                src: "/fonts/AvenirNext/AvenirNextBold.ttf",
+              },
+            ],
+          },
+          ,
+          ...defaultTheme.fontFamily.sans,
+        ], // Ensure fonts with spaces have " " surrounding it.
       },
       colors: {
         emerald: colors.emerald,
