@@ -219,9 +219,9 @@ export default function HomepageLayout({
         options={{
           enableHistory: true,
         }}
-        actions={actions}
+        // actions={actions}
       >
-        <CommandBar />
+        {/* <CommandBar /> */}
         {meta}
         {headerActive && <Header />}
         <main className="text-black dark:text-white">{children}</main>

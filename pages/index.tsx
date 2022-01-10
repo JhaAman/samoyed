@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import * as Separator from "@radix-ui/react-separator";
 import supabase from "../utils/supabase";
@@ -6,6 +6,7 @@ import { useUser } from "../utils/user";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../layout/Meta";
 import Image from "next/image";
+import { HotKeys } from "react-hotkeys";
 
 interface Props {
   beta_list: {
@@ -22,6 +23,13 @@ enum landingState {
   preorder,
 }
 
+const keyMap = {
+  FORWARD: "enter",
+  BACK: ["del", "backspace"],
+  SIGNIN: "s",
+  ESC: "esc",
+};
+
 const Home = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user } = useUser();
@@ -33,13 +41,26 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
+  const handleForward = useCallback(() => {
+    console.log("handleForward");
+  }, []);
+
+  const handlers = {
+    FORWARD: () => console.log("Move up hotkey called!"),
+    BACK: handleForward,
+    SIGNIN: handleForward,
+    ESC: handleForward,
+  };
+
   return (
-    <>
+    <HotKeys handlers={handlers}>
       {state === landingState.homepage && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
-            <h1 className="my-4 text-5xl">As Easy As Coding Gets</h1>
-            <h2 className="leading-relaxed max-w-prose">
+            <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
+              As Easy As Coding Gets
+            </h1>
+            <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
               We{"'"}re tired of crawling through StackOverflow and done with
               tutorial hell.
               <br />
@@ -59,12 +80,13 @@ const Home = ({ beta_list }: Props) => {
               </span>
             </button>
           </div>
+
           <div className=" right">
             <Image src="/ss.png" alt="Rosie" width={653} height={500} />
           </div>
         </div>
       )}
-    </>
+    </HotKeys>
   );
 };
 
@@ -82,7 +104,7 @@ Home.getLayout = (page: ReactElement) => {
       headerActive={true}
       footerActive={true}
     >
-      {page}
+      <HotKeys keyMap={keyMap}>{page}</HotKeys>
     </HomepageLayout>
   );
 };
