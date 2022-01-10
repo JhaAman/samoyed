@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["avenir-next", "sans"], // Ensure fonts with spaces have " " surrounding it.
+      },
       colors: {
         emerald: colors.emerald,
         fuchsia: colors.fuchsia,

@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import * as Separator from "@radix-ui/react-separator";
 import supabase from "../utils/supabase";
@@ -14,9 +14,17 @@ interface Props {
   }[];
 }
 
+enum landingState {
+  homepage,
+  press,
+  demo,
+  preorder,
+}
+
 const Home = ({ beta_list }: Props) => {
   const router = useRouter();
   const { user } = useUser();
+  const [state, setState] = useState(landingState.homepage);
 
   useEffect(() => {
     if (user) {
@@ -26,29 +34,19 @@ const Home = ({ beta_list }: Props) => {
 
   return (
     <>
-      <div className="flex min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
-        <div className="flex flex-col items-center justify-center flex-1 ">
-          <div className="justify-center text-center">
-            <h1 className="my-3 animate-[fadeIn_0.5s_linear] text-4xl">
-              Welcome to <span className="font-bold text-primary">Rosie</span>
-            </h1>
-            <p className="animate-[fadeIn_0.5s_linear]">
-              A React developer{"'"}s best friend
-            </p>
+      {state === landingState.homepage && (
+        <div className="flex items-center justify-center min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+          <div className="left ">
+            <h1 className="text-6xl">As Easy As Coding Gets</h1>
+            <h2>
+              We{"'"}re tired of crawling through StackOverflow and done with
+              tutorial hell. So we built{" "}
+              <span className="font-semibold text-primary">Rosie</span>
+            </h2>
           </div>
-          <Separator.Root className="animate-[scaleIn_0.25s_linear] w-40 my-16 bg-gray-500 h-0.5 opacity-30" />
-
-          <button
-            onClick={() => {}}
-            className="animate-[fadeIn_0.5s_linear] flex items-center px-1 py-2 text-sm font-medium text-white transition transform rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
-          >
-            <span className="">
-              Press <span className="font-bold">enter</span> to begin{" "}
-              <span className="w-5 h-5 opacity-70">&#8594;</span>
-            </span>
-          </button>
+          <div className="right "></div>
         </div>
-      </div>
+      )}
     </>
   );
 };
