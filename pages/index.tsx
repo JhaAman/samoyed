@@ -41,53 +41,12 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
-  function handleForward() {
-    if (state === "homepage") {
-      console.log("current state:  homepage");
-    } else if (state === "press") {
-      console.log("current state:  press");
-    } else if (state === "demo") {
-      console.log("current state:  demo");
-    } else if (state === "preorder") {
-      console.log("current state:  preorder");
-    }
+  function handleForward() {}
 
-    if (state === "homepage") {
-      console.log("home to press");
-      setState("press");
-    } else if (state === "press") {
-      console.log("press to demo");
-      setState("demo");
-    } else if (state === "demo") {
-      console.log("demo to preorder");
-      setState("preorder");
-    } else if (state === "preorder") {
-      console.log("preorder to preorder");
-      setState("homepage");
-    }
-  }
+  function handleBack() {}
 
-  function handleBack() {
-    if (state === "homepage") {
-      console.log("homepage to homepage");
-      setState("homepage");
-    } else if (state === "press") {
-      console.log("press to homepage");
-      setState("homepage");
-    } else if (state === "demo") {
-      console.log("demo to press");
-      setState("press");
-    } else if (state === "preorder") {
-      console.log("preorder to demo");
-      setState("demo");
-    }
-  }
-
-  useHotkeys("enter", () => {
-    console.log(state);
-    handleForward();
-  });
-  useHotkeys("backspace", () => handleBack());
+  useHotkeys("enter", () => setState((prevState) => prevState + 1));
+  useHotkeys("backspace", () => setState((prevState) => prevState - 1));
   useHotkeys("s", () => {
     router.push("/login");
   });
@@ -96,13 +55,12 @@ const Home = ({ beta_list }: Props) => {
   return (
     // <HotKeys handlers={handlers}>
     <>
-      {state === "homepage" && (
+      {state === 0 && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
             <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
               As Easy As Coding Gets
             </h1>
-            <h1>{count}</h1>
             <h2 className="animate-[fadeIn_0.5s_linear] leading-relaxed max-w-prose">
               We{"'"}re tired of crawling through StackOverflow and done with
               tutorial hell.
@@ -129,7 +87,7 @@ const Home = ({ beta_list }: Props) => {
           </div>
         </div>
       )}
-      {state === "press" && (
+      {state === 1 && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
             <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
@@ -161,7 +119,7 @@ const Home = ({ beta_list }: Props) => {
           </div>
         </div>
       )}
-      {state === "demo" && (
+      {state === 2 && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
             <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">demo</h1>
@@ -191,7 +149,7 @@ const Home = ({ beta_list }: Props) => {
           </div>
         </div>
       )}
-      {state === "preorder" && (
+      {state === 3 && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
             <h1 className="animate-[fadeIn_0.5s_linear] my-4 text-5xl">
