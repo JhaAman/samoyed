@@ -60,50 +60,6 @@ export default function HomepageLayout({
     */
   const router = useRouter();
 
-  const initialActions = [
-    {
-      id: "homeAction",
-      name: "Home",
-      shortcut: ["h"],
-      keywords: "back go home",
-      section: "Navigation",
-      perform: () => router.push("/"),
-      icon: <HomeIcon />,
-      subtitle: "Subtitles can help add more context.",
-    },
-    {
-      id: "docsAction",
-      name: "Docs",
-      shortcut: ["g", "d"],
-      keywords: "help",
-      section: "Navigation",
-      perform: () => router.push("/docs"),
-    },
-    {
-      id: "contactAction",
-      name: "Contact",
-      shortcut: ["c"],
-      keywords: "email hello",
-      section: "Navigation",
-      perform: () => window.open("mailto:timchang@hey.com", "_blank"),
-    },
-    {
-      id: "twitterAction",
-      name: "Twitter",
-      shortcut: ["t"],
-      keywords: "social contact dm",
-      section: "Navigation",
-      perform: () => window.open("https://twitter.com/timcchang", "_blank"),
-    },
-    createAction({
-      name: "Github",
-      shortcut: ["g", "h"],
-      keywords: "sourcecode",
-      section: "Navigation",
-      perform: () => window.open("https://github.com/timc1/kbar", "_blank"),
-    }),
-  ];
-
   const actions = [
     /* Action */
     {

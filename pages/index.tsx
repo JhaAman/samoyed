@@ -7,6 +7,7 @@ import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../layout/Meta";
 import Image from "next/image";
 import { HotKeys } from "react-hotkeys";
+import { useHotkeys } from "react-hotkeys-hook";
 
 interface Props {
   beta_list: {
@@ -41,19 +42,24 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
-  const handleForward = useCallback(() => {
-    console.log("handleForward");
-  }, []);
+  // const handleForward = useCallback(() => {
+  //   console.log("handleForward");
+  // }, []);
 
-  const handlers = {
-    FORWARD: () => console.log("Move up hotkey called!"),
-    BACK: handleForward,
-    SIGNIN: handleForward,
-    ESC: handleForward,
-  };
+  // const handlers = {
+  //   FORWARD: () => console.log("Move up hotkey called!"),
+  //   BACK: handleForward,
+  //   SIGNIN: handleForward,
+  //   ESC: handleForward,
+  // };
+  useHotkeys("enter", () => console.log("handleForward"));
+  useHotkeys("s", () => {
+    router.push("/login");
+  });
 
   return (
-    <HotKeys handlers={handlers}>
+    // <HotKeys handlers={handlers}>
+    <>
       {state === landingState.homepage && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="w-1/2 ml-20 left">
@@ -86,7 +92,8 @@ const Home = ({ beta_list }: Props) => {
           </div>
         </div>
       )}
-    </HotKeys>
+    </>
+    // </HotKeys>
   );
 };
 
@@ -104,7 +111,8 @@ Home.getLayout = (page: ReactElement) => {
       headerActive={true}
       footerActive={true}
     >
-      <HotKeys keyMap={keyMap}>{page}</HotKeys>
+      {/* <HotKeys keyMap={keyMap}>{page}</HotKeys> */}
+      {page}
     </HomepageLayout>
   );
 };
