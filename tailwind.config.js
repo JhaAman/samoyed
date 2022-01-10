@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["avenir-pro", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
+        // sans: ["avenir-pro", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
+        sans: ["Avenir Next", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
       },
       colors: {
         emerald: colors.emerald,

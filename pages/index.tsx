@@ -41,7 +41,7 @@ const Home = ({ beta_list }: Props) => {
             <h2>
               We{"'"}re tired of crawling through StackOverflow and done with
               tutorial hell. So we built{" "}
-              <span className="font-semibold text-primary">Rosie</span>
+              <span className="font-black text-primary">Rosie</span>
             </h2>
           </div>
           <div className="right "></div>
