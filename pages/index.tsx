@@ -5,6 +5,7 @@ import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../layout/Meta";
+import Image from "next/image";
 
 interface Props {
   beta_list: {
@@ -35,16 +36,32 @@ const Home = ({ beta_list }: Props) => {
   return (
     <>
       {state === landingState.homepage && (
-        <div className="flex items-center justify-center min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
-          <div className="left ">
-            <h1 className="text-6xl">As Easy As Coding Gets</h1>
-            <h2>
+        <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+          <div className="w-1/2 ml-20 left">
+            <h1 className="my-4 text-5xl">As Easy As Coding Gets</h1>
+            <h2 className="leading-relaxed max-w-prose">
               We{"'"}re tired of crawling through StackOverflow and done with
-              tutorial hell. So we built{" "}
-              <span className="font-black text-primary">Rosie</span>
+              tutorial hell.
+              <br />
+              So we built{" "}
+              <span className="font-semibold text-primary">Rosie</span>
             </h2>
+            <button
+              onClick={() => {}}
+              className="animate-[fadeIn_0.5s_linear] flex items-center mt-4 py-2 text-sm font-medium text-white transition transform rounded-full backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
+            >
+              <span className="">
+                Press{" "}
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  enter
+                </span>{" "}
+                to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
+              </span>
+            </button>
           </div>
-          <div className="right "></div>
+          <div className=" right">
+            <Image src="/ss.png" alt="Rosie" width={653} height={500} />
+          </div>
         </div>
       )}
     </>
