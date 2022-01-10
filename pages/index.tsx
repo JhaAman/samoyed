@@ -45,8 +45,12 @@ const Home = ({ beta_list }: Props) => {
 
   function handleBack() {}
 
-  useHotkeys("enter", () => setState((prevState) => prevState + 1));
-  useHotkeys("backspace", () => setState((prevState) => prevState - 1));
+  useHotkeys("enter", () =>
+    setState((prevState) => Math.min(prevState + 1, 3))
+  );
+  useHotkeys("backspace", () =>
+    setState((prevState) => Math.max(prevState - 1, 0))
+  );
   useHotkeys("s", () => {
     router.push("/login");
   });
