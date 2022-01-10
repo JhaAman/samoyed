@@ -6,9 +6,13 @@ import Clarify from "./Clarify";
 
 interface Props {
   answer: { type?: string; content?: string };
+  clarifyingPrompt: string;
 }
 
-export default function AnswerPanel({ answer }: Props): ReactElement {
+export default function AnswerPanel({
+  answer,
+  clarifyingPrompt,
+}: Props): ReactElement {
   return (
     // Card bg
     <div className="flex-1 mx-10 mb-10 overflow-y-auto rounded bg-surface">
@@ -24,7 +28,7 @@ export default function AnswerPanel({ answer }: Props): ReactElement {
 
         {/* Right */}
         <div className="flex flex-col flex-1 p-4 ml-8 rounded bg-overlay-dark">
-          <Clarify />
+          <Clarify clarifyingPrompt={clarifyingPrompt} />
         </div>
       </div>
     </div>
