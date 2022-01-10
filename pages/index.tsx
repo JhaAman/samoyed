@@ -6,7 +6,6 @@ import { useUser } from "../utils/user";
 import HomepageLayout from "../layout/HomepageLayout";
 import Meta from "../layout/Meta";
 import Image from "next/image";
-import { HotKeys } from "react-hotkeys";
 import { useHotkeys } from "react-hotkeys-hook";
 
 interface Props {
@@ -42,20 +41,45 @@ const Home = ({ beta_list }: Props) => {
     }
   }, [router, user]);
 
-  // const handleForward = useCallback(() => {
-  //   console.log("handleForward");
-  // }, []);
+  function handleEnter(){
+    switch(state){
+      case landingState.homepage:
+        setState(landingState.press);
+        break;
+      case landingState.press:
+        setState(landingState.demo);
+        break;
+      case landingState.demo:
+        setState(landingState.preorder);
+        break;
+      case landingState.preorder:
+        // setState(landingState.preorder); // do nothing
+        break;
+  }
 
-  // const handlers = {
-  //   FORWARD: () => console.log("Move up hotkey called!"),
-  //   BACK: handleForward,
-  //   SIGNIN: handleForward,
-  //   ESC: handleForward,
-  // };
-  useHotkeys("enter", () => console.log("handleForward"));
+  function handleBack(){
+    switch(state){
+      case landingState.homepage:
+        // setState(landingState.homepage); // do nothing
+        break;
+      case landingState.press:
+        setState(landingState.homepage);
+        break;
+      case landingState.demo:
+        setState(landingState.press);
+        break;
+      case landingState.preorder:
+        setState(landingState.demo);
+        break;
+    }
+  }
+
+  useHotkeys("enter", () => console.log("enter"));
+  useHotkeys("backspace", () => console.log("backspace"));
   useHotkeys("s", () => {
     router.push("/login");
   });
+  useHotkeys("esc", () => console.log("esc"));
 
   return (
     // <HotKeys handlers={handlers}>
