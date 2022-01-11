@@ -6,6 +6,7 @@
  */
 
 import { NextApiRequest, NextApiResponse } from "next";
+import * as demo from "./demo_prompts";
 
 import OpenAI from "openai-api";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY as string;
@@ -25,8 +26,11 @@ export default async function handler(
     method,
   } = req;
 
+  const template = demo.demo1_template;
+  const demo_prompt = demo.demo1_prompt;
+
   const prompt =
-    promptTemplate +
+    template +
     question +
     `
 
