@@ -16,6 +16,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import { Dialog, Transition } from "@headlessui/react";
+import styles from "../styles/Enter.module.css";
 
 interface Props {
   beta_list: {
@@ -76,7 +77,9 @@ const Home = ({ beta_list }: Props) => {
                 onClick={() => handleForward()}
                 className="flex items-center py-2 mt-4 font-medium text-white transition transform rounded-full animate-fade-in-down shine backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
               >
-                <span className="animate-bounce">
+                <span
+                // className={styles.shimmer}
+                >
                   Press{" "}
                   <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
                     enter
@@ -87,7 +90,7 @@ const Home = ({ beta_list }: Props) => {
             </div>
           </div>
 
-          <div className="pt-1 pl-1 rounded-l-xl bg-primary animate-[fadeIn_1s_linear]">
+          <div className="pt-1 pl-1 rounded-l-xl bg-primary animate-fade-in-down">
             <Image
               src="/ss.png"
               alt="Rosie"
@@ -285,7 +288,7 @@ const Home = ({ beta_list }: Props) => {
           {/* <h1 className="mb-8 text-3xl">Preorder Rosie</h1> */}
 
           <div className="flex flex-col items-center justify-center gap-16 md:flex-row">
-            <div className="flex flex-col  animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
+            <div className="flex flex-col animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
               <div className="flex flex-col items-center justify-between rounded-t-xl bg-gradient-to-br from-[#C545F7] to-[#456FF7] w-72 h-72">
                 <h3 className="mt-4 text-xl">Monthly</h3>
                 <span className="flex flex-col items-center justify-center text-center">
@@ -307,7 +310,7 @@ const Home = ({ beta_list }: Props) => {
               </div>
             </div>
 
-            <div className="flex flex-col  animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
+            <div className="flex flex-col animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
               <div className="flex flex-col items-center justify-between rounded-t-xl bg-gradient-to-br from-primary to-[#F74545] w-72 h-72">
                 <h3 className="mt-4 text-xl">Earlybird</h3>
                 <span className="flex flex-col items-center justify-center text-center">
@@ -329,7 +332,7 @@ const Home = ({ beta_list }: Props) => {
               </div>
             </div>
 
-            <div className="flex flex-col  animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
+            <div className="flex flex-col animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
               <div className="flex flex-col items-center justify-between rounded-t-xl bg-gradient-to-br from-[#F74545] to-[#F7A145] w-72 h-72">
                 <h3 className="mt-4 text-xl">Lifetime</h3>
                 <span className="flex flex-col items-center justify-center text-center">
