@@ -14,9 +14,9 @@
 
   --on-surface: theme("colors.white");
 
-  /* --primary-dark: theme("colors.rosie.500"); */
+  --primary-dark: theme("colors.rosie.700");
   --primary: theme("colors.rosie.500");
-  /* --primary-light: theme("colors.rosie.500"); */
+  --primary-light: theme("colors.rosie.300");
   --on-primary: theme("colors.white");
 
   /* --accent-dark: theme("colors.fuchsia.900"); */

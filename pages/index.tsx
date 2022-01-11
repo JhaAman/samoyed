@@ -64,12 +64,9 @@ const Home = ({ beta_list }: Props) => {
               <h1 className="my-4 text-5xl animate-fade-in-down">
                 As Easy As Coding Gets
               </h1>
-              <h2 className="leading-relaxed animate-fade-in-down max-w-prose">
-                We{"'"}re tired of crawling through StackOverflow and done with
-                tutorial hell.
-                <br />
-                So we built{" "}
-                <span className="font-semibold text-primary">Rosie</span>
+              <h2 className="text-xl leading-relaxed animate-fade-in-down max-w-prose">
+                <span className="font-semibold  text-primary">Rosie</span>. An
+                AI that answers coding questions for you. Instantly.
               </h2>
             </div>
             <div className="flex items-center justify-center w-full mt-8">
@@ -81,7 +78,7 @@ const Home = ({ beta_list }: Props) => {
                 // className={styles.shimmer}
                 >
                   Press{" "}
-                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                     enter
                   </span>{" "}
                   to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
@@ -90,7 +87,7 @@ const Home = ({ beta_list }: Props) => {
             </div>
           </div>
 
-          <div className="pt-1 pl-1 rounded-l-xl bg-primary animate-fade-in-down">
+          <div className="border-l border-y rounded-l-xl rounded-y-xl border-primary animate-fade-in-down">
             <Image
               src="/ss.png"
               alt="Rosie"
@@ -125,7 +122,7 @@ const Home = ({ beta_list }: Props) => {
               >
                 <span className="">
                   Press{" "}
-                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                     enter
                   </span>{" "}
                   to continue{" "}
@@ -139,7 +136,7 @@ const Home = ({ beta_list }: Props) => {
               >
                 <span className="">
                   <span className="w-5 h-5 opacity-70">&#8592;</span>
-                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                     backspace
                   </span>{" "}
                   to go back
@@ -183,7 +180,7 @@ const Home = ({ beta_list }: Props) => {
               >
                 <span className="">
                   Press{" "}
-                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                     enter
                   </span>{" "}
                   to continue{" "}
@@ -197,7 +194,7 @@ const Home = ({ beta_list }: Props) => {
               >
                 <span className="">
                   <span className="w-5 h-5 opacity-70">&#8592;</span>
-                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                  <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                     backspace
                   </span>{" "}
                   to go back
@@ -363,7 +360,7 @@ const Home = ({ beta_list }: Props) => {
             >
               <span className="">
                 Press{" "}
-                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                   enter
                 </span>{" "}
                 to see FAQ <span className="w-5 h-5 opacity-70">&#8594;</span>
@@ -376,7 +373,7 @@ const Home = ({ beta_list }: Props) => {
             >
               <span className="">
                 <span className="w-5 h-5 opacity-70">&#8592;</span>
-                <span className="px-1 py-0.5 rounded m-1 font-bold bg-gray-800">
+                <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
                   backspace
                 </span>{" "}
                 to go back
