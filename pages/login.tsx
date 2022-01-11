@@ -53,7 +53,7 @@ const Login = ({ beta_list }: Props) => {
   };
 
   return (
-    <div className="flex justify-center h-screen">
+    <div className="flex justify-center h-screen bg-gradient-to-tr from-hero-left to-hero-right">
       <div className="flex flex-col justify-between max-w-lg p-3 m-auto w-80 ">
         {/* <div className="flex items-center justify-center pb-12">
           <Logo width="32px" height="32px" />

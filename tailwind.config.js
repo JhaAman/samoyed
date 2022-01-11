@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -7,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // sans: ["avenir-pro", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
+        sans: ["Avenir Next", ...defaultTheme.fontFamily.sans], // Ensure fonts with spaces have " " surrounding it.
+      },
       colors: {
         emerald: colors.emerald,
         fuchsia: colors.fuchsia,
@@ -70,10 +75,36 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateY(-30)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
         scaleIn: {
           "0%": { transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
         },
+
+        shine: {
+          "10%": {
+            opacity: 1,
+            top: "-30%",
+            left: "-30%",
+          },
+          "100%": {
+            opacity: 0,
+            top: "-30%",
+            left: "-30%",
+          },
+        },
+      },
+      animation: {
+        "fade-in-down": "fade-in-down 0.5s ease-out",
       },
     },
   },

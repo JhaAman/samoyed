@@ -12,9 +12,9 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/ibm-plex-sans-var.woff2"
+          href="/fonts/avenir-next-lt-pro/AvenirNextLTPro-Regular.woff"
           as="font"
-          type="font/woff2"
+          type="font/woff"
           crossOrigin="anonymous"
         />
         <link href="/static/favicon_io/favicon.ico" rel="shortcut icon" />
