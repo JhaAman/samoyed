@@ -61,7 +61,7 @@ const Home = ({ beta_list }: Props) => {
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="flex flex-col w-2/5 ml-20 ">
             <div>
-              <h1 className="my-4 text-5xl animate-fade-in-down">
+              <h1 className="my-4 text-4xl animate-fade-in-down">
                 As Easy As Coding Gets
               </h1>
               <h2 className="text-xl leading-relaxed animate-fade-in-down max-w-prose">
