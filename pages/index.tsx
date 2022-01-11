@@ -267,16 +267,25 @@ const Home = ({ beta_list }: Props) => {
                       </p>
                     </div>
 
-                    <div className="mt-4">
+                    <div className="flex mt-4">
                       <button
                         type="button"
-                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                        className="inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-rosie-900 bg-rosie-100 hover:bg-rosie-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rosie-500"
                         onClick={() => {
                           setIsWaitlistOpen(false);
                           router.push("/signup");
                         }}
                       >
                         Join Waitlist
+                      </button>
+                      <button
+                        type="button"
+                        className="mx-3 text-sm text-overlay-dark hover:text-primary"
+                        onClick={() => {
+                          setIsWaitlistOpen(false);
+                        }}
+                      >
+                        Nevermind
                       </button>
                     </div>
                   </div>
