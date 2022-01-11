@@ -75,10 +75,36 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateY(-30)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
         scaleIn: {
           "0%": { transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
         },
+
+        shine: {
+          "10%": {
+            opacity: 1,
+            top: "-30%",
+            left: "-30%",
+          },
+          "100%": {
+            opacity: 0,
+            top: "-30%",
+            left: "-30%",
+          },
+        },
+      },
+      animation: {
+        "fade-in-down": "fade-in-down 0.5s ease-out",
       },
     },
   },
