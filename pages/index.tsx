@@ -65,8 +65,8 @@ const Home = ({ beta_list }: Props) => {
                 As Easy As Coding Gets
               </h1>
               <h2 className="text-xl leading-relaxed animate-fade-in-down max-w-prose">
-                <span className="font-semibold  text-primary">Rosie</span>. An
-                AI that answers coding questions for you. Instantly.
+                <span className="font-semibold text-primary">Rosie</span>. An AI
+                that answers coding questions for you. Instantly.
               </h2>
             </div>
             <div className="flex items-center justify-center w-full mt-8">
@@ -271,7 +271,10 @@ const Home = ({ beta_list }: Props) => {
                       <button
                         type="button"
                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                        onClick={() => setIsWaitlistOpen(false)}
+                        onClick={() => {
+                          setIsWaitlistOpen(false);
+                          router.push("/signup");
+                        }}
                       >
                         Join Waitlist
                       </button>
