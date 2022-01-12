@@ -39,7 +39,7 @@ const Home = ({ beta_list }: Props) => {
   }, [router, user]);
 
   function handleForward() {
-    setState((prevState) => Math.min(prevState + 1, 3));
+    setState((prevState) => Math.min(prevState + 1, 1));
     setIsWaitlistOpen(false);
   }
 
@@ -102,7 +102,7 @@ const Home = ({ beta_list }: Props) => {
         </div>
       )}
 
-      {state === 1 && (
+      {/* {state === 1 && (
         <div className="flex items-center justify-between min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <div className="flex flex-col w-2/5 ml-20 left">
             <div>
@@ -216,9 +216,9 @@ const Home = ({ beta_list }: Props) => {
             />
           </div>
         </div>
-      )}
+      )} */}
 
-      {state === 3 && (
+      {state === 1 && (
         <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
           <Transition appear show={isWaitlistOpen} as={Fragment}>
             <Dialog

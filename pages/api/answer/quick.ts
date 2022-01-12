@@ -26,9 +26,9 @@ export default async function handler(
     method,
   } = req;
 
-  const template = demo.error_template;
+  const template = promptTemplate;
   // const demo_prompt = demo.error_prompt;
-  const demo_answer = demo.error_answer;
+  const demo_answer = demo.explain_answer;
 
   const prompt = template + question + demo_answer;
 
@@ -70,10 +70,9 @@ export const simple_hash = (input: string): string => {
 
 export const promptTemplate = `###
 
-Question Subject: 
+Question Text: 
 How do I navigate programmatically in React?
 
-Question Details:
 I know I can create <Link /> objects to click and navigate, but how do I navigate based on a programmatic event happening?
 
 Answer text:
@@ -102,4 +101,4 @@ Here's a link to the official [documentation](https://v5.reactrouter.com/web/api
 
 ###
 
-`;
+Question Text:`;
