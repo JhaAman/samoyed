@@ -26,15 +26,11 @@ export default async function handler(
     method,
   } = req;
 
-  const template = demo.demo1_template;
-  const demo_prompt = demo.demo1_prompt;
+  const template = demo.error_template;
+  // const demo_prompt = demo.error_prompt;
+  const demo_answer = demo.error_answer;
 
-  const prompt =
-    template +
-    question +
-    `
-
-Answer text:`;
+  const prompt = template + question + demo_answer;
 
   const email_hash = simple_hash(email);
 
