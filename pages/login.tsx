@@ -151,7 +151,7 @@ Login.getLayout = (page: ReactElement) => {
           description="Ready to become a 10x React developer?"
         />
       }
-      headerActive={true}
+      headerActive={false}
       footerActive={false}
     >
       {page}

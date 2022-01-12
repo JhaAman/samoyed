@@ -297,7 +297,7 @@ const Home = ({ beta_list }: Props) => {
             </Dialog>
           </Transition>
 
-          {/* <h1 className="mb-8 text-3xl">Preorder Rosie</h1> */}
+          <h1 className="mb-8 text-3xl">Preorder Rosie Today</h1>
 
           <div className="flex flex-col items-center justify-center gap-16 md:flex-row">
             <div className="flex flex-col animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
@@ -326,20 +326,28 @@ const Home = ({ beta_list }: Props) => {
               <div className="flex flex-col items-center justify-between rounded-t-xl bg-gradient-to-br from-primary to-[#F74545] w-72 h-72">
                 <h3 className="mt-4 text-xl">Earlybird</h3>
                 <span className="flex flex-col items-center justify-center text-center">
-                  <h2 className="text-3xl">$150</h2>
+                  <h2 className="text-3xl">$145</h2>
                   <p>LIFETIME ACCESS</p>
                 </span>
-                <h4 className="mb-2">{"87"} spots left</h4>
+                <h4 className="mb-2">{"87/100"} seats left</h4>
               </div>
               <div className="flex items-center justify-center flex-1 animate-fade-in-down">
                 <Button
                   className="flex items-center justify-center lowercase"
-                  onClick={
-                    () => console.log("preorder")
-                    // TODO: implement
-                  }
+                  onClick={() => {
+                    window.open(
+                      "https://buy.stripe.com/4gw3cQ78vbeHbaU4gg",
+                      "_blank" // <- This is what makes it open in a new window.
+                    );
+                  }}
                 >
-                  <span className="">Preorder</span>
+                  <a
+                  // target="_blank"
+                  // href="https://buy.stripe.com/4gw3cQ78vbeHbaU4gg"
+                  // rel="noopener noreferrer"
+                  >
+                    Preorder
+                  </a>
                 </Button>
               </div>
             </div>
@@ -351,17 +359,25 @@ const Home = ({ beta_list }: Props) => {
                   <h2 className="text-3xl">$225</h2>
                   <p>LIFETIME ACCESS</p>
                 </span>
-                <h4 className="mb-2">{"100"} spots left</h4>
+                <h4 className="mb-2">{"99/100"} seats left</h4>
               </div>
               <div className="flex items-center justify-center flex-1 animate-fade-in-down">
                 <Button
                   className="flex items-center justify-center lowercase"
-                  onClick={
-                    () => console.log("preorder")
-                    // TODO: implement
-                  }
+                  onClick={() => {
+                    window.open(
+                      "https://buy.stripe.com/28o00EfF1eqTfraeUV",
+                      "_blank" // <- This is what makes it open in a new window.
+                    );
+                  }}
                 >
-                  <span className="">Preorder</span>
+                  <a
+                  // target="_blank"
+                  // href="https://buy.stripe.com/28o00EfF1eqTfraeUV"
+                  // rel="noopener noreferrer"
+                  >
+                    Preorder
+                  </a>
                 </Button>
               </div>
             </div>
