@@ -87,14 +87,17 @@ const Home = ({ beta_list }: Props) => {
             </div>
           </div>
 
-          <div className="border-l border-y rounded-l-xl rounded-y-xl border-primary animate-fade-in-down">
-            <Image
+          <div className=" animate-fade-in-down">
+            <video autoPlay muted loop className="h-96">
+              <source src="/Error.mp4" type="video/mp4" />
+            </video>
+            {/* <Image
               src="/ss.png"
               alt="Rosie"
               width={653}
               height={500}
               className="rounded-l-xl"
-            />
+            /> */}
           </div>
         </div>
       )}
