@@ -14,7 +14,6 @@ export default function QuestionInput({
   return (
     <Input.TextArea
       label="Your Question"
-      limit={500}
       rows={8}
       value={question}
       onChange={(e) => {
