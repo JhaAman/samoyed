@@ -14,7 +14,7 @@ interface Props {}
 export default function RequestAccess({}: Props): ReactElement {
   return (
     <>
-      <Widget id="n2dprafs" style={{ width: "100%" }} className="h-screen" />
+      <Widget id="GU7Lgyqg" style={{ width: "100%" }} className="h-screen" />
     </>
   );
 }
