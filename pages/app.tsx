@@ -3,11 +3,11 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { FormEvent, useState } from "react";
 import { useEffect } from "react";
-import AnswerPanel from "../../components/app/AnswerPanel";
-import History from "../../components/app/History";
-import QuestionPanel from "../../components/app/QuestionPanel";
-import supabase from "../../utils/supabase";
-import { useUser } from "../../utils/user";
+import AnswerPanel from "../components/app/AnswerPanel";
+import History from "../components/app/History";
+import QuestionPanel from "../components/app/QuestionPanel";
+import supabase from "../utils/supabase";
+import { useUser } from "../utils/user";
 
 let base_url = process.env.NEXT_PUBLIC_BASE_URL;
 if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
