@@ -6,7 +6,7 @@
  */
 
 import { NextApiRequest, NextApiResponse } from "next";
-import * as demo from "./demo_prompts";
+import * as demo from "../../../prompts/demo_prompts";
 
 import OpenAI from "openai-api";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY as string;
