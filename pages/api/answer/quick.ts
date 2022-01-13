@@ -22,9 +22,10 @@ export default async function handler(
 ) {
   const {
     query: { id, name },
-    body: { question, email },
+    body: { question, answerType, email },
     method,
   } = req;
+  console.log("answer type: ", answerType);
 
   const template = promptTemplate;
   // const demo_prompt = demo.error_prompt;

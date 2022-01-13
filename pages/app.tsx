@@ -54,7 +54,8 @@ const App = ({ beta_list }: Props) => {
 
   const handleSubmitQuestion = async (
     e: FormEvent<HTMLFormElement>,
-    q: string
+    q: string, // the question content
+    a: string // the type of answer the user wants
   ) => {
     e.preventDefault();
     setLoading(true);
@@ -66,6 +67,7 @@ const App = ({ beta_list }: Props) => {
 
     const response = await axios.post(`${base_url}` + "/api/answer/quick", {
       question: q,
+      answerType: a,
       email: user?.email || "unauthenticated",
     });
 
