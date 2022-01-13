@@ -16,7 +16,7 @@ export const explain_prompt = `What is the difference between Next Image and a n
 
 // ----------------------------------------------------------------------------
 
-export const error_template = `Question text:
+export const code_template = `Question text:
 "Hooks can only be called inside the body of a function component" ReactJS Error. What does this mean?
 My code looks like this:
 \`\`\` JS
@@ -26,6 +26,7 @@ function App() {
     );
 }
 \`\`\`
+
 Answer:
 The error message is saying that the \`onClick\` function is not a valid function component. Here's what you should write instead:
 
@@ -42,6 +43,6 @@ function App() {
 
 Question text:`;
 
-export const error_answer = `
+export const code_answer = `
 
 Answer text:`;

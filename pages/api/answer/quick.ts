@@ -25,9 +25,15 @@ export default async function handler(
     body: { question, answerType, email },
     method,
   } = req;
-  console.log("answer type: ", answerType);
 
-  const template = promptTemplate;
+  // TODO: based on the answerType, use the correct prompt
+  let template = promptTemplate;
+  if (answerType === "Explain") {
+    template = demo.explain_template;
+  } else if (answerType === "Code") {
+    template = demo.code_template;
+  }
+  // const template = promptTemplate;
   // const demo_prompt = demo.error_prompt;
   const demo_answer = demo.explain_answer;
 
