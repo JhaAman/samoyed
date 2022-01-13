@@ -15,7 +15,7 @@ export default function Footer({}: Props): ReactElement {
   return (
     <footer>
       {/* Footer (sign in) */}
-      <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center mb-16 text-xs opacity-50 ">
+      <div className="absolute bottom-0 left-0 right-0 flex-col items-center justify-center hidden mb-16 text-xs opacity-50 lg:flex ">
         <button
           // className="animate-[moveUpDown_3s_ease-in-out_infinite]"
           className="p-2 rounded-full text-gray-50 bg-overlay-dark hover:bg-overlay-light hover:text-white focus:outline-none"
