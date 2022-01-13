@@ -51,15 +51,28 @@ const StyledThumb = styled(SliderPrimitive.Thumb, {
   "&:focus": { boxShadow: `0 0 0 5px ${blackA.blackA8}` },
 });
 
-const Slider = () => (
-  <form>
-    <StyledSlider defaultValue={[50]} max={100} step={1} aria-label="Volume">
-      <StyledTrack>
-        <StyledRange />
-      </StyledTrack>
-      <StyledThumb />
-    </StyledSlider>
-  </form>
-);
+const Slider = (props: {
+  onChangeValue: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  const { onChangeValue } = props;
+  return (
+    <form>
+      <StyledSlider
+        defaultValue={[50]}
+        max={100}
+        step={1}
+        aria-label="Volume"
+        onValueChange={(value) => {
+          onChangeValue(value[0]);
+        }}
+      >
+        <StyledTrack>
+          <StyledRange />
+        </StyledTrack>
+        <StyledThumb />
+      </StyledSlider>
+    </form>
+  );
+};
 
 export default Slider;

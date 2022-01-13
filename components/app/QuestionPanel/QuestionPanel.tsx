@@ -1,4 +1,4 @@
-import React, { FormEvent, ReactElement, useState } from "react";
+import React, { FormEvent, ReactElement, useEffect, useState } from "react";
 import Button from "../../ui/Button";
 import Slider from "./Slider";
 import QuestionInput from "./QuestionInput";
@@ -6,7 +6,8 @@ import QuestionInput from "./QuestionInput";
 interface Props {
   handleSubmitQuestion: (
     e: FormEvent<HTMLFormElement>,
-    question: string
+    question: string,
+    answer: string
   ) => Promise<void>;
   loading: boolean;
 }
@@ -16,6 +17,18 @@ export default function QuestionPanel({
   loading,
 }: Props): ReactElement {
   const [question, setQuestion] = useState("");
+  const [answerTypeValue, setAnswerTypeValue] = useState(50);
+  const [answerTypeContent, setAnswerTypeContent] = useState("Normal");
+
+  useEffect(() => {
+    if (answerTypeValue < 50) {
+      setAnswerTypeContent("Explain");
+    } else if (answerTypeValue === 50) {
+      setAnswerTypeContent("Normal");
+    } else {
+      setAnswerTypeContent("Code");
+    }
+  }, [answerTypeValue]);
 
   return (
     // Card bg
@@ -29,7 +42,7 @@ export default function QuestionPanel({
           <div className="flex flex-col mt-8 ">
             <h1 className="mb-2 text-sm">What do you want to see more of?</h1>
             <div>
-              <Slider />
+              <Slider onChangeValue={setAnswerTypeValue} />
               <div className="flex justify-between">
                 <h3 className="text-xs">Explanations</h3>
                 <h3 className="text-xs">Code Snippets</h3>
@@ -41,7 +54,7 @@ export default function QuestionPanel({
           <form
             className="flex justify-center mt-8"
             onSubmit={(e) => {
-              handleSubmitQuestion(e, question);
+              handleSubmitQuestion(e, question, answerTypeContent);
             }}
           >
             <Button

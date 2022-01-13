@@ -6,7 +6,7 @@
  */
 
 import { NextApiRequest, NextApiResponse } from "next";
-import * as demo from "./demo_prompts";
+import * as demo from "../../../prompts/demo_prompts";
 
 import OpenAI from "openai-api";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY as string;
@@ -22,11 +22,18 @@ export default async function handler(
 ) {
   const {
     query: { id, name },
-    body: { question, email },
+    body: { question, answerType, email },
     method,
   } = req;
 
-  const template = promptTemplate;
+  // TODO: based on the answerType, use the correct prompt
+  let template = promptTemplate;
+  if (answerType === "Explain") {
+    template = demo.explain_template;
+  } else if (answerType === "Code") {
+    template = demo.code_template;
+  }
+  // const template = promptTemplate;
   // const demo_prompt = demo.error_prompt;
   const demo_answer = demo.explain_answer;
 
