@@ -20,7 +20,7 @@ export default function Preorder({
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
+    <div className="flex flex-col items-center justify-center min-h-screen py-20 text-white lg:py-0 bg-gradient-to-tr from-hero-left to-hero-right">
       <Transition appear show={isWaitlistOpen} as={Fragment}>
         <Dialog
           as="div"
@@ -100,7 +100,7 @@ export default function Preorder({
 
       <h1 className="mb-8 text-3xl">Preorder Rosie Today</h1>
 
-      <div className="flex flex-col items-center justify-center gap-16 md:flex-row">
+      <div className="flex flex-col items-center justify-center gap-16 lg:flex-row">
         <div className="flex flex-col animate-fade-in-down rounded-xl w-72 h-96 bg-surface">
           <div className="flex flex-col items-center justify-between rounded-t-xl bg-gradient-to-br from-[#C545F7] to-[#456FF7] w-72 h-72">
             <h3 className="mt-4 text-xl">Monthly</h3>
@@ -112,7 +112,7 @@ export default function Preorder({
           </div>
           <div className="flex items-center justify-center flex-1 animate-fade-in-down">
             <Button
-              className="flex items-center justify-center lowercase"
+              className="flex items-center justify-center "
               onClick={
                 () => setIsWaitlistOpen(true)
                 // TODO: implement
@@ -134,7 +134,7 @@ export default function Preorder({
           </div>
           <div className="flex items-center justify-center flex-1 animate-fade-in-down">
             <Button
-              className="flex items-center justify-center lowercase"
+              className="flex items-center justify-center "
               onClick={() => {
                 window.open(
                   "https://buy.stripe.com/4gw3cQ78vbeHbaU4gg",
@@ -164,7 +164,7 @@ export default function Preorder({
           </div>
           <div className="flex items-center justify-center flex-1 animate-fade-in-down">
             <Button
-              className="flex items-center justify-center lowercase"
+              className="flex items-center justify-center "
               onClick={() => {
                 window.open(
                   "https://buy.stripe.com/28o00EfF1eqTfraeUV",
