@@ -2,6 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Button } from "@supabase/ui";
 import router from "next/router";
 import React, { Dispatch, Fragment, ReactElement, SetStateAction } from "react";
+import { useMediaQuery } from "react-responsive";
 
 interface Props {
   handleForward: () => void;
@@ -16,6 +17,8 @@ export default function Preorder({
   isWaitlistOpen,
   setIsWaitlistOpen,
 }: Props): ReactElement {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gradient-to-tr from-hero-left to-hero-right">
       <Transition appear show={isWaitlistOpen} as={Fragment}>
@@ -203,7 +206,7 @@ export default function Preorder({
           <span className="">
             <span className="w-5 h-5 opacity-70">&#8592;</span>
             <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
-              backspace
+              {isMobile ? "Tap here" : "backspace"}
             </span>{" "}
             to go back
           </span>

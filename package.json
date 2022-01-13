@@ -34,6 +34,7 @@
     "react-hotkeys": "^2.0.0",
     "react-hotkeys-hook": "^3.4.4",
     "react-merge-refs": "^1.1.0",
+    "react-responsive": "^9.0.0-beta.5",
     "react-tag-input": "^6.7.3",
     "stripe": "^8.195.0",
     "swr": "^1.1.2",
