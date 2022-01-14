@@ -129,7 +129,8 @@ const Login = ({ beta_list }: Props) => {
   );
 };
 
-export const getStaticProps = async () => {
+// Is it a static prop thing? Nextjs will refresh the beta list only once I re-run everything? So make it server side?
+export const getServerSideProps = async () => {
   const { data: beta_list, error } = await supabase
     .from("beta_list")
     .select("*");
