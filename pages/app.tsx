@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import AnswerPanel from "../components/app/AnswerPanel";
 import History from "../components/app/History";
 import QuestionPanel from "../components/app/QuestionPanel";
+import stripe from "../utils/stripe";
 import supabase from "../utils/supabase";
 import { useUser } from "../utils/user";
 
@@ -20,11 +21,24 @@ interface Props {
     name: string;
     email: string;
   }[];
+  prices: {
+    id: string;
+    name: string;
+    amount: number;
+    currency: string;
+    interval: string;
+  }[];
+  products: any[];
 }
 
-const App = ({ beta_list }: Props) => {
+const App = ({ beta_list, prices, products }: Props) => {
   const router = useRouter();
   const { user, profile, logout } = useUser();
+
+  // console.log("USER", user);
+  // console.log("PROFILE", profile);
+  console.log("PRICES", prices);
+  console.log("PRODUCTS", products);
 
   const [loading, setLoading] = useState(false);
   const [question, setQuestion] = useState("");
@@ -103,9 +117,20 @@ const App = ({ beta_list }: Props) => {
 
 export const getStaticProps = async () => {
   const { data: beta_list } = await supabase.from("beta_list").select("*");
+
+  const { data: prices } = await stripe.prices.list();
+  const products = await Promise.all(
+    prices.map(async (price) => {
+      const product = await stripe.products.retrieve(price.product as string);
+      return product;
+    })
+  );
+
   return {
     props: {
       beta_list,
+      prices,
+      products,
     },
   };
 };

@@ -4,18 +4,13 @@
 */
 
 import { NextApiRequest, NextApiResponse } from "next";
-import initStripe from "stripe";
+import stripe from "../../utils/stripe";
 import supabase from "../../utils/supabase";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.query.API_ROUTE_SECRET !== process.env.API_ROUTE_SECRET) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-
-  const stripe = new initStripe(
-    process.env.STRIPE_SECRET_KEY as string,
-    {} as any
-  );
 
   console.log("email is ", req.body.record.email);
   console.log("id is ", req.body.record.id);
