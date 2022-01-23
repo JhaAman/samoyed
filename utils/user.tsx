@@ -1,39 +1,31 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import supabase from "./supabase";
 import { useRouter } from "next/router";
-import axios from "axios";
 import { User, Session } from "@supabase/supabase-js";
+import axios from "axios";
+import supabase from "./supabase";
 import { Profile } from "../types";
 
 type UserContextType = {
-  session: Session | null;
-  user: User | null;
-  profile: Profile | null;
-  userLoaded: boolean;
-  login: () => void;
-  logout: () => void;
+  session: Session | null; // Supabase session
+  user: User | null; // Supabase auth.user object
+  profile: Profile | null; // Profile db table
+  userLoaded: boolean; // display loading screen
+  login: () => void; // login function
+  logout: () => void; // logout function
 };
-
-// type UserProvider = {
-//   user: User | null;
-//   login: () => Promise<void>;
-//   logout: () => Promise<void>;
-//   isLoading: boolean;
-// };
 
 const UserContext = createContext<UserContextType>(undefined as any);
 
 const UserProvider = (props: { children: any }) => {
   const { children } = props;
-
-  const [userLoaded, setUserLoaded] = useState(false);
-  const [session, setSession] = useState<Session | null>(null);
-  // const [user, setUser] = useState(supabase.auth.user());
-  const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  // const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
+  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [userLoaded, setUserLoaded] = useState(false);
+
+  // Get session and listener from beginning
   useEffect(() => {
     const session = supabase.auth.session();
     setSession(session);
@@ -51,44 +43,24 @@ const UserProvider = (props: { children: any }) => {
     };
   }, []);
 
-  // const getUserProfile = async () => {
-  //   // Get user data from user table
-  //   const sessionUser = supabase.auth.user();
-
-  //   if (sessionUser) {
-  //     // Get data from profile table
-  //     const { data: profile } = await supabase
-  //       .from("profile")
-  //       .select("*")
-  //       .eq("id", sessionUser.id)
-  //       .single();
-
-  //     // Merge supabase user table with profile table
-  //     setUser({
-  //       ...sessionUser,
-  //       ...profile,
-  //     });
-
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  const getUserProfile = async () => {
-    // Get user profile data
-    if (user) {
-      const { data: profile } = await supabase
-        .from("profile")
-        .select("*")
-        .eq("id", user.id)
-        .single();
-
-      setProfile(profile);
-      setUserLoaded(true);
-    }
-  };
-
+  // Fetch user profile data on login
   useEffect(() => {
-    getUserProfile();
+    async function fetchProfile(user: User) {
+      if (user) {
+        const { data: profile } = await supabase
+          .from("profile")
+          .select("*")
+          .eq("id", user.id)
+          .single();
+
+        setProfile(profile);
+        setUserLoaded(true);
+      }
+    }
+    if (user) {
+      setUserLoaded(false);
+      fetchProfile(user);
+    }
   }, [user]);
 
   // useEffect(() => {
@@ -106,7 +78,12 @@ const UserProvider = (props: { children: any }) => {
 
   const logout = async () => {
     await supabase.auth.signOut();
+
+    setSession(null);
     setUser(null);
+    setProfile(null);
+    setUserLoaded(false);
+
     router.push("/");
   };
 

@@ -1,5 +1,10 @@
+/*
+  SLS function that is called when a new profile is created. It automatically creates
+  a Stripe customer for the profile.
+*/
+
 import { NextApiRequest, NextApiResponse } from "next";
-import initStripe from "stripe";
+import stripe from "../../utils/stripe";
 import supabase from "../../utils/supabase";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -7,10 +12,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  const stripe = new initStripe(
-    process.env.STRIPE_SECRET_KEY as string,
-    {} as any
-  );
+  console.log("email is ", req.body.record.email);
+  console.log("id is ", req.body.record.id);
 
   const customer = await stripe.customers.create({
     email: req.body.record.email,
