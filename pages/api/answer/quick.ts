@@ -58,7 +58,7 @@ export default async function handler(
 
 async function getAIResponse(prompt: string, hash: string) {
   const res = await openai.complete({
-    engine: "code-davinci-001",
+    engine: "code-davinci-001", // old version was davinci-codex
     prompt: prompt,
     maxTokens: 256,
     temperature: 0.5,
