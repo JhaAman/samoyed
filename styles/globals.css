@@ -30,12 +30,26 @@
 
 /* Default light theme */
 [data-theme="light"] {
-  --background: theme("colors.white");
-  --background-secondary: theme("colors.gray.50");
+  --overlay-light: theme("colors.dark.overlay-light");
+  --overlay-dark: theme("colors.dark.overlay-dark");
+  --surface: theme("colors.dark.surface");
+  --base: theme("colors.dark.base");
+  --overflow: theme("colors.dark.overflow");
 
-  --primary-dark: theme("colors.gray.900");
-  --primary: theme("colors.gray.700");
-  --primary-light: theme("colors.gray.500");
+  --on-surface: theme("colors.white");
+
+  --primary-dark: theme("colors.rosie.700");
+  --primary: theme("colors.rosie.500");
+  --primary-light: theme("colors.rosie.300");
+  --on-primary: theme("colors.white");
+
+  /* --accent-dark: theme("colors.fuchsia.900"); */
+  --accent: theme("colors.fuchsia.700");
+  /* --accent-light: theme("colors.fuchsia.500"); */
+  --on-accent: theme("colors.white");
+
+  --hero-left: theme("colors.dark.hero-left");
+  --hero-right: theme("colors.dark.hero-right");
 }
 
 /* [data-theme="emerald"] {

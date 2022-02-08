@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { useMediaQuery } from "react-responsive";
+import router from "next/router";
 
 interface Props {
   handleForward: () => void;
@@ -17,23 +18,28 @@ export default function Landing({
       <div className="flex flex-col w-4/5 mt-16 md:w-2/5 md:mt-0 lg:ml-20 ">
         <div>
           <h1 className="my-4 text-4xl animate-fade-in-down">
-            As Easy As Coding Gets
+            Ship Product Twice As Fast
           </h1>
+
           <h2 className="text-xl leading-relaxed animate-fade-in-down max-w-prose">
-            <span className="font-semibold text-primary">Rosie</span>. An AI
-            that answers coding questions for you. Instantly.
+            <span className="font-semibold text-rosie-500">Rosie</span>. A
+            chatbot pair programmer that helps you debug, learn new concepts,
+            and ship product faster.
           </h2>
         </div>
         <div className="flex items-center justify-center w-full mt-8 md:mb-8">
           <button
-            onClick={() => handleForward()}
+            // onClick={() => handleForward()}
+            onClick={() => {
+              router.push("/signup");
+            }}
             className="flex items-center py-2 mt-4 font-medium text-white transition transform rounded-full animate-fade-in-down shine backface-visibility-hidden active:bg-opacity-40 hover:scale-105 hover:bg-opacity-30 focus:outline-none bg-opacity-20"
           >
             <span
             // className={styles.shimmer}
             >
               Press{" "}
-              <span className="px-1 py-0.5 rounded m-1 font-bold bg-primary-dark">
+              <span className="px-1 py-0.5 rounded m-1 font-bold bg-rosie-700">
                 {isMobile ? "here" : "enter"}
               </span>{" "}
               to begin <span className="w-5 h-5 opacity-70">&#8594;</span>
